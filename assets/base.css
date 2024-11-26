@@ -597,17 +597,6 @@ mark {
   position: relative;
   z-index: 0;
 }
-
-.section + .section {
-  margin-top: var(--spacing-sections-mobile);
-}
-
-@media screen and (min-width: 750px) {
-  .section + .section {
-    margin-top: var(--spacing-sections-desktop);
-  }
-}
-
 .element-margin-top {
   margin-top: 5rem;
 }
@@ -2121,14 +2110,8 @@ details[open] > .share-button__fallback {
 #MainContent:not(.template__password,.template__index) {
   margin: var(--spacing-sections-desktop) 0;
 }
-#MainContent .shopify-section:not(:last-child,.section-divider) {
-  margin-bottom: var(--spacing-sections-desktop);
-}
 #MainContent.template__index {
-  margin-bottom: var(--spacing-sections-desktop);
-}
-body.template-index:not(.slideshow-transparent__header) .shopify-section:first-child {
-  margin-top: 20px;
+  margin-bottom: 0;
 }
 .section-with-padding {
   border: var(--solid-border);
@@ -2145,7 +2128,7 @@ body.template-index:not(.slideshow-transparent__header) .shopify-section:first-c
     margin-bottom: var(--spacing-sections-mobile);
   }
   main#MainContent.template__index {
-    margin-bottom: var(--spacing-sections-mobile);
+    margin-bottom: 0;
   }
   .body-with-solid-border .shopify-section-group-header-group.section-header {
     margin-top: 10px;

@@ -1,0 +1,15 @@
+@media screen and (min-width: 1000px) {
+    .header {
+        display: flex;
+        width: 100%;
+    }
+    .header__inline-menu, .header__icons {
+        width: 33%;
+    }
+    .header__heading {
+        width: 34%;
+    }
+    .header__icons {
+        justify-content: end;
+    }
+}

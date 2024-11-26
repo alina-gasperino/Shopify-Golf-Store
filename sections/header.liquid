@@ -93,36 +93,6 @@
 {% endunless %}
 <div class="header-wrapper relative__header color-{{ section.settings.color_scheme }} {% if section.settings.transparent_header %}transparent_header{% endif %}">
   <header class="header header--{{ section.settings.logo_position }}{% if section.settings.enable_overlay_navigation %} navigation-panel{% endif %} navigation__position-{{ section.settings.navigation_position }} header--mobile-{{ section.settings.mobile_logo_position }}{% if section.settings.menu != blank %} header--has-menu{% endif %}">
-    <div class="header-left__icons small-hide medium-hide">
-    {% if section.settings.enable_overlay_navigation %}
-      <button type="button" class="header-additional__toggle-link" data-modal-type="overly-navigation-panel" aria-label="navigation-panel">
-        {% render 'theme-icons', icon: 'menu' %}
-      </button>
-      {% render 'overlay-navigation-panel', section: section %}
-    {% endif %}
-    <a href="{{ routes.search_url }}" class="header__search header__icon popup--button" data-modal-type="search" aria-label="{{ 'general.search.search' | t }}">{% render 'theme-icons', icon: 'search' %}</a>
-    </div>
-    {%- if request.page_type == 'index' -%}
-      <h1 class="header__heading">
-    {%- endif -%}
-        <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
-          {%- if section.settings.logo != blank -%}
-            {%- assign logo_alt = section.settings.logo.alt | default: shop.name | escape -%}
-            {%- assign logo_height = section.settings.logo_width | divided_by: section.settings.logo.aspect_ratio -%}
-            {{ section.settings.logo | image_url: width: 500 | image_tag:
-              class: 'header__heading-logo motion-reduce',
-              widths: '50, 100, 150, 200, 250, 300, 400, 500',
-              height: logo_height,
-              width: section.settings.logo_width,
-              alt: logo_alt
-            }}
-          {%- else -%}
-            <span class="h2">{{ shop.name }}</span>
-          {%- endif -%}
-        </a>
-    {%- if request.page_type == 'index' -%}
-      </h1>
-    {%- endif -%}
     {%- if section.settings.menu != blank and section.settings.navigation_position == 'top-with-header' -%}
       <nav class="header__inline-menu">
         <ul class="list-menu list-menu--inline" role="list">
@@ -381,6 +351,29 @@
         </ul>
       </nav>
     {% endif %}
+
+    {%- if request.page_type == 'index' -%}
+      <h1 class="header__heading">
+    {%- endif -%}
+        <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
+          {%- if section.settings.logo != blank -%}
+            {%- assign logo_alt = section.settings.logo.alt | default: shop.name | escape -%}
+            {%- assign logo_height = section.settings.logo_width | divided_by: section.settings.logo.aspect_ratio -%}
+            {{ section.settings.logo | image_url: width: 500 | image_tag:
+              class: 'header__heading-logo motion-reduce',
+              widths: '50, 100, 150, 200, 250, 300, 400, 500',
+              height: logo_height,
+              width: section.settings.logo_width,
+              alt: logo_alt
+            }}
+          {%- else -%}
+            <span class="h2">{{ shop.name }}</span>
+          {%- endif -%}
+        </a>
+    {%- if request.page_type == 'index' -%}
+      </h1>
+    {%- endif -%}
+
     <div class="header__icons">
       <div class="header-mobile--search">
         <form action="{{ routes.search_url }}" method="get" role="search" class="search mobile-search-form">
@@ -417,6 +410,17 @@
           {% render 'language-country-selector', place: 'MainHeader', color-scheme: section.settings.color_scheme %}
         {% endif %}
       {% endif %}
+
+      <div class="header-left__icons small-hide medium-hide">
+        {% if section.settings.enable_overlay_navigation %}
+          <button type="button" class="header-additional__toggle-link" data-modal-type="overly-navigation-panel" aria-label="navigation-panel">
+            {% render 'theme-icons', icon: 'menu' %}
+          </button>
+          {% render 'overlay-navigation-panel', section: section %}
+        {% endif %}
+        <a href="{{ routes.search_url }}" class="header__search header__icon popup--button" data-modal-type="search" aria-label="{{ 'general.search.search' | t }}">{% render 'theme-icons', icon: 'search' %}</a>
+      </div>
+
       {%- if shop.customer_accounts_enabled -%}
         <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" data-modal-type="{%- if customer -%}order-list{% else %}account-login{% endif %}" class="header__icon header__icon--account link {% if template.name != 'login' and template.name != 'account' %}popup--button{% endif %} focus-inset{% if section.settings.menu != blank %} small-hide{% endif %}">
           {% render 'theme-icons', icon: 'user', width: '30px', height: "30px" %}
@@ -460,36 +464,6 @@
 {% if section.settings.sticky_header and section.settings.navigation_position == 'top-with-header' or section.settings.navigation_position == 'inline-with-logo' %}
   <sticky-header class="header-wrapper header__sticky color-{{ section.settings.color_scheme }} medium-hide small-hide">
     <header class="header header--{{ section.settings.logo_position }}{% if section.settings.enable_overlay_navigation %} navigation-panel{% endif %} navigation__position-{{ section.settings.navigation_position }} header--mobile-{{ section.settings.mobile_logo_position }}{% if section.settings.menu != blank %} header--has-menu{% endif %}">
-      <div class="header-left__icons small-hide medium-hide">
-        {% if section.settings.enable_overlay_navigation %}
-          <button type="button" class="header-additional__toggle-link" data-modal-type="overly-navigation-panel">
-            {% render 'theme-icons', icon: 'menu' %}
-          </button>
-          {% render 'overlay-navigation-panel', section: section %}
-        {% endif %}
-        <a href="{{ routes.search_url }}" class="header__search header__icon popup--button" data-modal-type="search" aria-label="{{ 'general.search.search' | t }}">{% render 'theme-icons', icon: 'search' %}</a>
-      </div>
-      {%- if request.page_type == 'index' -%}
-        <h1 class="header__heading">
-      {%- endif -%}
-          <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
-            {%- if section.settings.logo != blank -%}
-              {%- assign logo_alt = section.settings.logo.alt | default: shop.name | escape -%}
-              {%- assign logo_height = section.settings.logo_width | divided_by: section.settings.logo.aspect_ratio -%}
-              {{ section.settings.logo | image_url: width: 500 | image_tag:
-                class: 'header__heading-logo motion-reduce',
-                widths: '50, 100, 150, 200, 250, 300, 400, 500',
-                height: logo_height,
-                width: section.settings.logo_width,
-                alt: logo_alt
-              }}
-            {%- else -%}
-              <span class="h2">{{ shop.name }}</span>
-            {%- endif -%}
-          </a>
-      {%- if request.page_type == 'index' -%}
-        </h1>
-      {%- endif -%}
       {%- if section.settings.menu != blank and section.settings.navigation_position == 'top-with-header' or section.settings.navigation_position == 'inline-with-logo' -%}
         <nav class="header__inline-menu">
           <ul class="list-menu list-menu--inline" role="list">
@@ -619,12 +593,42 @@
           </ul>
         </nav>
       {%- endif -%}
+      {%- if request.page_type == 'index' -%}
+        <h1 class="header__heading">
+      {%- endif -%}
+          <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
+            {%- if section.settings.logo != blank -%}
+              {%- assign logo_alt = section.settings.logo.alt | default: shop.name | escape -%}
+              {%- assign logo_height = section.settings.logo_width | divided_by: section.settings.logo.aspect_ratio -%}
+              {{ section.settings.logo | image_url: width: 500 | image_tag:
+                class: 'header__heading-logo motion-reduce',
+                widths: '50, 100, 150, 200, 250, 300, 400, 500',
+                height: logo_height,
+                width: section.settings.logo_width,
+                alt: logo_alt
+              }}
+            {%- else -%}
+              <span class="h2">{{ shop.name }}</span>
+            {%- endif -%}
+          </a>
+      {%- if request.page_type == 'index' -%}
+        </h1>
+      {%- endif -%}
       <div class="header__icons">
         {% if section.settings.navigation_position == 'top-with-header' or section.settings.navigation_position == 'inline-with-logo' %}
           {%- if section.settings.enable_country_selector or section.settings.enable_language_selector %}
             {% render 'language-country-selector', place: 'MainHeaderSticky', color-scheme: section.settings.color_scheme %}
           {% endif %}
         {% endif %}
+        <div class="header-left__icons small-hide medium-hide">
+          {% if section.settings.enable_overlay_navigation %}
+            <button type="button" class="header-additional__toggle-link" data-modal-type="overly-navigation-panel">
+              {% render 'theme-icons', icon: 'menu' %}
+            </button>
+            {% render 'overlay-navigation-panel', section: section %}
+          {% endif %}
+          <a href="{{ routes.search_url }}" class="header__search header__icon popup--button" data-modal-type="search" aria-label="{{ 'general.search.search' | t }}">{% render 'theme-icons', icon: 'search' %}</a>
+        </div>
         {%- if shop.customer_accounts_enabled -%}
           <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" data-modal-type="{%- if customer -%}order-list{% else %}account-login{% endif %}" class="header__icon header__icon--account link {% if template.name != 'login' and template.name != 'account' %}popup--button{% endif %} focus-inset{% if section.settings.menu != blank %} small-hide{% endif %}">
             {% render 'theme-icons', icon: 'user', width: '30px', height: "30px" %}
