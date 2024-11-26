@@ -45,6 +45,7 @@
       {% render 'font-face' %}
       {% render 'css-variables' %}
       {{- 'base.css' | asset_url | stylesheet_tag -}}
+      {{- 'custom.css' | asset_url | stylesheet_tag -}}
       {% if template == 'gift_card' %}
         {{ 'template-giftcard.css' | asset_url | stylesheet_tag }}
       {% endif %}
