@@ -1,0 +1,155 @@
+{{ 'customer.css' | asset_url | stylesheet_tag }}
+
+<div class="rt-theme-popup color-secondary hide-popup {% unless customer.orders.size > 0 %}empty--order{% endunless %}" data-popup-type="{% if customer %}order-list{% else %}account-login{% endif %}">
+  <button class="theme-popup-close color-secondary">{% render 'theme-icons', icon: 'close' %}</button>
+   <div class="popup--inner">
+    {% unless customer %}
+    <div class="customer login">
+      <div class="customer--login-form" id="login"> 
+        <div class="header--intro center">
+          <div class="header--head">
+            <h2 class="h3">
+              {{ 'customer.login_page.title' | t }}
+            </h2>
+          </div>
+        </div>
+        <div>
+          {%- if recover_success == true -%}
+            <legend class="theme--success-message special--medium">{% render 'theme-icons', icon: 'check' %}{{ 'customer.recover_password.success' | t }}</legend>
+          {%- endif -%}
+          {%- form 'customer_login', id: 'customer_login_popup', novalidate: 'novalidate' -%}
+            {%- if form.errors -%}
+              <legend class="theme--error-message special--medium">{% render 'theme-icons', icon: 'warning' %}{{ form.errors.messages.form }}</legend>
+            {%- endif -%}
+      
+            <div class="field">
+              <label for="CustomerEmailPopup" class="hide">{{ 'customer.login_page.email' | t }}</label>
+              <input
+                type="email"
+                name="customer[email]"
+                id="CustomerEmailPopup"
+                autocomplete="email"
+                autocorrect="off"
+                autocapitalize="off"
+                required
+                {% if form.errors contains 'form' %}
+                  aria-invalid="true"
+                {% endif %}
+                placeholder="{{ 'customer.login_page.email' | t }}"
+              >
+            </div>
+      
+            {%- if form.password_needed -%}
+              <div class="field">
+                <label for="CustomerPasswordPopup" class="hide">
+                  {{ 'customer.login_page.password' | t }}
+                </label>
+                <input
+                  type="password"
+                  value=""
+                  name="customer[password]"
+                  id="CustomerPasswordPopup"
+                  autocomplete="current-password"
+                  required
+                  {% if form.errors contains 'form' %}
+                    aria-invalid="true"
+                  {% endif %}
+                  placeholder="{{ 'customer.login_page.password' | t }}"
+                >
+              </div>
+            {%- endif -%}
+            <button class="btn btn--primary">
+              {{ 'customer.login_page.sign_in' | t }} {% render 'theme-icons', icon: 'arrow-up-right' %}
+            </button>
+            <a href="{{ routes.account_login_url | append: '#recover' }}" class="center recover--password" recover--password>
+              {{ 'customer.login_page.forgot_password' | t }}
+            </a>
+            <p class="customer-redirect__link">{{ 'customer.login_page.register_html' | t: link: routes.account_register_url }}</p>
+          {%- endform -%}
+        </div>
+      </div>
+	</div>
+    {% else %}
+		<div class="customer-order-list">
+		  <div class="customer-order-header border--thin-bottom">
+			<h4 class="h4">{{ 'customer.account.title' | t }}</h4>
+			<a href="{{ routes.account_logout_url }}" class="link--underline">
+			  {{ 'customer.log_out' | t }}
+			</a>
+		  </div>
+		  <h5>{{ 'customer.orders.title' | t }}</h5>
+		  {% paginate customer.orders by 3 %}
+			{%- if customer.orders.size > 0 -%}
+			  <table role="table" class="order-history customer theme--scrollbar">
+				<caption class="visually-hidden">
+				  {{ 'customer.orders.title' | t }}
+				</caption>
+				<thead role="rowgroup">
+				  <tr role="row">
+					<th id="ColumnOrder" scope="col" role="columnheader">{{ 'customer.orders.order_number' | t }}</th>
+					<th id="ColumnDate" scope="col" role="columnheader">{{ 'customer.orders.date' | t }}</th>
+					<th id="ColumnPayment" scope="col" role="columnheader">{{ 'customer.orders.payment_status' | t }}</th>
+					<th id="ColumnFulfillment" scope="col" role="columnheader">
+					  {{ 'customer.orders.fulfillment_status' | t }}
+					</th>
+					<th id="ColumnTotal" scope="col" role="columnheader">{{ 'customer.orders.total' | t }}</th>
+				  </tr>
+				</thead>
+				<tbody role="rowgroup">
+				  {%- for order in customer.orders -%}
+					<tr role="row">
+					  <td
+						id="RowOrder"
+						role="cell"
+						headers="ColumnOrder"
+						data-label="{{ 'customer.orders.order_number' | t }}"
+					  >
+						<a
+                          class="link--underline"
+						  href="{{ order.customer_url }}"
+						  aria-label="{{ 'customer.orders.order_number_link' | t: number: order.name }}"
+						>
+						  {{ order.name }}
+						</a>
+					  </td>
+					  <td headers="RowOrder ColumnDate" role="cell" data-label="{{ 'customer.orders.date' | t }}">
+						{{ order.created_at | time_tag: format: 'date' }}
+					  </td>
+					  <td
+						headers="RowOrder ColumnPayment"
+						role="cell"
+						data-label="{{ 'customer.orders.payment_status' | t }}"
+					  >
+						{{ order.financial_status_label }}
+					  </td>
+					  <td
+						headers="RowOrder ColumnFulfillment"
+						role="cell"
+						data-label="{{ 'customer.orders.fulfillment_status' | t }}"
+					  >
+						{{ order.fulfillment_status_label }}
+					  </td>
+					  <td headers="RowOrder ColumnTotal" role="cell" data-label="{{ 'customer.orders.total' | t }}">
+						{{ order.total_net_amount | money_with_currency }}
+					  </td>
+					</tr>
+				  {%- endfor -%}
+				</tbody>
+			  </table>
+			{%- else -%}
+			  <p>{{ 'customer.orders.none' | t }}</p>
+			  <a href="{{ routes.account_url }}" class="btn btn--primary">{{ 'customer.account.go_to_account' | t }} {% render 'theme-icons', icon: 'arrow-up-right' %}</a>
+			{%- endif -%}
+
+			{%- if paginate.pages > 1 -%}
+			  <a href="{{ routes.account_url }}" class="btn btn--primary">{{ 'customer.account.go_to_account' | t }} {% render 'theme-icons', icon: 'arrow-up-right' %}</a>
+			{%- elsif customer.orders.size > 0 -%}
+			   <a href="{{ routes.account_url }}" class="btn btn--primary">{{ 'customer.account.go_to_account' | t }} {% render 'theme-icons', icon: 'arrow-up-right' %}</a>
+			{% endif %}
+		  {% endpaginate %}
+		</div>
+      {% endunless %}
+    </div>
+</div>
+
+  

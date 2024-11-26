@@ -1,0 +1,133 @@
+.collapsible-panel {
+  position: relative;
+  z-index: 0;
+}
+
+.collapsible-section-layout {
+  padding-bottom: 5rem;
+  padding-top: 5rem;
+}
+.collapsible-panel .accordion {
+  border: var(--solid-border);
+  border-radius: var(--border-radius-lx);
+}
+
+.collapsible-panel__media  {
+  border: var(--solid-border);
+  border-radius: var(--border-radius-xl);
+}
+.collapsible-panel__grid-right .minus,
+.collapsible-panel__grid-right .accordion.active .plus{
+  display: none;
+}
+.collapsible-panel__grid-right .accordion.active .minus {
+  display: block;
+}
+.collapsible-panel__media .placeholder-svg {
+  height: 100%;
+}
+@media screen and (min-width: 750px) {
+  .collapsible-section-layout {
+    padding-bottom: 7rem;
+    padding-top: 7rem;
+  }
+}
+
+.collapsible-panel__media--small {
+  height: 19.4rem;
+}
+
+.collapsible-panel__media--large {
+  height: 43.5rem;
+}
+
+@media screen and (min-width: 750px) {
+  .collapsible-panel__media--small {
+    height: 31.4rem;
+  }
+
+  .collapsible-panel__media--large {
+    height: 69.5rem;
+  }
+}
+
+.collapsible-panel-wrapper-narrow {
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.collapsible-panel__header {
+  word-break: break-word;
+}
+
+.collapsible-panel__heading {
+  margin-bottom: 2rem;
+  margin-top: 0;
+}
+
+@media screen and (min-width: 750px) {
+  .collapsible-panel__heading {
+    margin-bottom: 3rem;
+  }
+  .collapsible-panel-wrapper-narrow {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  .collapsible-panel__media {
+    border-radius: var(--border-radius-xlg);
+  }
+}
+
+.collapsible-none-layout .accordion + .accordion {
+  border-top: 0;
+}
+
+.collapsible-row-layout .accordion:not(:first-child):not(.color-background-1) {
+  margin-top: 1rem;
+}
+
+.caption-with-letter-spacing + h2 {
+  margin-top: 1rem;
+}
+
+.collapsible-row-layout .accordion {
+  margin-bottom: 1.5rem;
+}
+
+.collapsible-row-layout .accordion summary,
+.collapsible-row-layout .accordion .accordion__content {
+  padding: 1.5rem;
+}
+
+.collapsible-row-layout .accordion .accordion__content {
+  padding-top: 0;
+}
+
+@media screen and (min-width: 990px) {
+  .collapsible-panel__grid {
+    align-items: center;
+  }
+  .collapsible-panel__grid-right {
+    margin-left: -80px;
+    z-index: 1;
+  }
+}
+
+
+/* check for flexbox gap in older Safari versions */
+@supports not (inset: 10px) {
+  @media screen and (min-width: 750px) {
+    .collapsible-panel__grid .grid__item:last-child,
+    .collapsible-panel__grid-item {
+      padding-left: 5rem;
+      padding-right: 0;
+    }
+  }
+
+  @media screen and (min-width: 990px) {
+    .collapsible-panel__grid .grid__item:last-child,
+    .collapsible-panel__grid-item {
+      padding-left: 7rem;
+    }
+  }
+}

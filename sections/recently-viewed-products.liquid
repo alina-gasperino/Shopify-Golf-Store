@@ -1,0 +1,195 @@
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'component-rte.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+
+<link rel="stylesheet" href="{{ 'component-slider.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'template-collection.css' | asset_url }}" media="print" onload="this.media='all'">
+<script src="{{ 'recently-viewed-products.js' | asset_url }}" defer="defer"></script>
+{%- if section.settings.enable_quick_add -%}
+  <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+<noscript>{{ 'component-slider.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'template-collection.css' | asset_url | stylesheet_tag }}</noscript>
+
+{%- liquid
+  assign productLimit = section.settings.products_to_show
+  assign show_vendor = settings.product_grid_show_vendor
+  assign show_rating = settings.product_grid_show_rating
+  assign show_sale_badge = settings.product_grid_show_sale_badge
+  assign show_soldout_badge = settings.product_grid_show_soldout_badge
+  assign media_aspect_ratio = settings.recently_image_ratio
+  assign show_secondary_image = settings.recently_show_secondary_image
+  assign color_scheme = settings.recently_color_scheme
+  assign show_color_swatches = settings.recently_show_color_swatch
+  assign show_quick_add = settings.recently_enable_quick_add
+  assign grid_style = settings.grid_style
+-%}
+
+<div class="section__recently-viewed{% unless section.settings.full_width %} page-width{% endunless %}{% unless settings.extra_space %} page-width-with-extra{% endunless %}">
+  <div class="featured--collection">
+    <div class="header--intro {{ section.settings.heading_alignment }}">
+      {%- if section.settings.title != blank -%}
+        <div class="header-head">
+          <legend class="subheading special--base bold">{{ section.settings.subheading | escape }}</legend>
+          <h2 class="heading {{ section.settings.heading_size }}">{{ section.settings.title | escape }}</h2>
+        </div>
+      {%- endif -%}
+    </div>
+    <recently-viewed-products data-product-limit="{{ productLimit }}">
+      <slider-component class="slider-mobile-gutter grid-item-slider{% if section.settings.full_width %} slider-component-full-width{% endif %}">
+        <ul
+          id="Slider-{{ section.id }}"
+          class="grid product-grid component__recently-viewed contains-card contains-card--product grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down"
+          role="list"
+          aria-label="{{ 'general.slider.name' | t }}"
+        >
+          <li id="Slider-{{ section.id }}-1" class="grid__item recently__viewed-grid hide">
+            {% render 'card-product',
+              card_product: product,
+              media_aspect_ratio: media_aspect_ratio,
+              show_secondary_image: show_secondary_image,
+              product_grid_style: grid_style,
+              color_scheme: color_scheme,
+              show_color_swatches: show_color_swatches,
+              show_quick_add: show_quick_add,
+              show_vendor: show_vendor,
+              show_rating: show_rating,
+              show_sale_badge: show_sale_badge,
+              show_soldout_badge: show_soldout_badge
+              section_id: section.id
+            %}
+          </li>
+        </ul>
+      </slider-component>
+    </recently-viewed-products>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.recently-viewed-products.name",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": [
+      "header",
+      "footer"
+    ]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.layout.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "t:sections.all.full_width.label",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 2,
+      "max": 8,
+      "step": 1,
+      "default": 4,
+      "label": "t:sections.recently-viewed-products.settings.products_to_show.label"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 4,
+      "label": "t:sections.recently-viewed-products.settings.columns_desktop.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.recently-viewed-products.settings.header_mobile.content"
+    },
+    {
+      "type": "radio",
+      "id": "columns_mobile",
+      "default": "2",
+      "label": "t:sections.recently-viewed-products.settings.columns_mobile.label",
+      "options": [
+        {
+          "value": "1",
+          "label": "t:sections.recently-viewed-products.settings.columns_mobile.options__1.label"
+        },
+        {
+          "value": "2",
+          "label": "t:sections.recently-viewed-products.settings.columns_mobile.options__2.label"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.section_header.content"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "t:sections.all.subheading.label"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "default": "Recently viewed products",
+      "label": "t:sections.all.heading.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h3",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h4",
+          "label": "t:sections.all.heading_size.options__3.label"
+        },
+        {
+          "value": "h5",
+          "label": "t:sections.all.heading_size.options__4.label"
+        }
+      ],
+      "default": "h3",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.all.text_alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.all.text_alignment.options__2.label"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.all.text_alignment.options__3.label"
+        }
+      ],
+      "default": "center",
+      "label": "t:sections.all.heading_alignment.label"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.recently-viewed-products.presets.name"
+    }
+  ]
+}
+{% endschema %}

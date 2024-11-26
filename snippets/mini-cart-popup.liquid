@@ -1,0 +1,54 @@
+<link rel="stylesheet" href="{{ 'component-mini-cart-popup.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'component-mini-cart-popup.css' | asset_url | stylesheet_tag }}</noscript>
+<script src="{{ 'mini-cart-popup.js' | asset_url }}" defer="defer"></script>
+
+<div class="rt-theme-popup color-secondary hide-popup" data-popup-type="mini-cart-popup">
+  <button class="theme-popup-close color-secondary">{% render 'theme-icons', icon: 'close' %}</button>
+  <div class="popup--inner" role="dialog" aria-modal="true">
+    <mini-cart-popup>
+      <div class="mini-cart-popup-wrapper">
+        <div
+          id="mini-cart-popup"
+          class="mini-cart-popup focus-inset{% if color_scheme %} color-{{ color_scheme }} gradient{% endif %}"
+          aria-modal="true"
+          aria-label="{{ 'general.cart.item_added' | t }}"
+          role="dialog"
+          tabindex="-1"
+        >
+          <div class="mini-cart-popup__header">
+            <legend class="theme--success-message">
+              {%- render 'theme-icons', icon: 'check' -%}
+              {{ 'general.cart.item_added' | t }}
+            </legend>
+          </div>
+          <div id="mini-cart-popup-product" class="mini-cart-popup-product"></div>
+          {% if settings.terms_checkbox == true and settings.terms_content != blank %}
+            <div class="terms-and-conditions">
+              <label for="agree-terms-conditions" class="agree-terms-checkbox">
+                <input type="checkbox" id="agree-terms-conditions" form="mini-cart-popup-form" required/>
+                {{ settings.terms_content }}
+              </label>
+            </div>
+          {% endif %}
+          <div class="mini-cart-popup__links">
+            <a
+              href="{{ routes.cart_url }}"
+              id="mini-cart-popup-button"
+              class="btn"
+            >{{ 'general.cart.view_empty_cart' | t }} {%- render 'theme-icons', icon: 'arrow-up-right' -%}</a>
+            <form action="{{ routes.cart_url }}" method="post" id="mini-cart-popup-form">
+              <button class="btn btn--primary" name="checkout">
+                {{ 'sections.cart.checkout' | t }} {%- render 'theme-icons', icon: 'arrow-up-right' -%}
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </mini-cart-popup>
+  </div>        
+</div>
+{% style %}
+  .mini-cart-popup {
+    display: none;
+  }
+{% endstyle %}

@@ -1,0 +1,43 @@
+.pagination-wrapper {
+  margin-top: 20px;
+}
+
+@media screen and (min-width: 750px) {
+  .pagination-wrapper {
+    margin-top: 40px;
+  }
+  .pagination__list>li {
+    height: 45px;
+    width: 45px;
+  }
+}
+
+.pagination__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+.pagination__list>li>a {
+  border-radius: var(--border-radius-lx);
+}
+.pagination__list>li {
+  border: 1px solid;
+  display: flex;
+  height: 40px;
+  width: 40px;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--border-radius-lx);
+}
+
+.pagination__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  text-decoration: none;
+}

@@ -1,0 +1,12 @@
+{% if settings.back_to_top_only_homepage %}
+    {% if template == 'index' %}
+        <div class="fixed-scroll-top-btn hide">
+            <button class="btn-back-to-top color-{{ settings.back_to_top_color }}">{% render 'theme-icons', icon: 'chevron-up' %}</button>
+        </div>
+    {% endif %}
+{% else %} 
+    <div class="fixed-scroll-top-btn hide">
+        <button class="btn-back-to-top color-{{ settings.back_to_top_color }}">{% render 'theme-icons', icon: 'chevron-up' %}</button>
+    </div>
+{% endif %}
+

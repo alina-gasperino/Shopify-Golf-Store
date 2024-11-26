@@ -1,0 +1,26 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-search",
+      "settings": {
+        "full_width": false,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "color_scheme": "secondary",
+        "image_ratio": "adapt",
+        "show_color_swatch": true,
+        "show_secondary_image": false,
+        "enable_quick_add": true,
+        "enable_filtering": true,
+        "filter_type": "popup",
+        "color_filter": true,
+        "enable_sorting": true,
+        "article_show_date": true,
+        "article_show_author": true
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

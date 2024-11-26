@@ -1,0 +1,195 @@
+.column-grid .title {
+  margin: 0;
+}
+
+.column-grid.no-heading .title {
+  display: none;
+}
+
+.column-grid .title-wrapper-with-link {
+  margin-top: 0;
+}
+.column-grid-card__image-wrapper .media {
+  border-radius: var(--border-radius-xl);
+}
+@media screen and (max-width: 749px) {
+  .column-grid .title-wrapper-with-link {
+    margin-bottom: 3rem;
+  }
+  .column-grid-card__image-wrapper+* {
+    margin-top: 15px;
+  }
+}
+
+.column-without__background .column-grid-card__image-wrapper .media {
+  border-radius: 0px;
+}
+.column-grid-card__image-wrapper--third-width {
+  width: 33%;
+  max-width: 40px;
+}
+
+.column-grid-card__image-wrapper--half-width {
+  width: 50%;
+}
+
+.column-grid-list__item.center
+  .column-grid-card__image-wrapper:not(.column-grid-card__image-wrapper--full-width),
+.column-grid-list__item:only-child {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (min-width: 750px) {
+  .column-grid .button {
+    margin-top: 4rem;
+  }
+  .column-grid-card__image-wrapper+* {
+    margin-top: 20px;
+  }
+}
+
+.column-grid-list {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+.column-grid-list__item:only-child {
+  max-width: 72rem;
+}
+
+.column-grid-list__item--empty {
+  display: none;
+}
+
+.column-grid-list h3,
+.column-grid-list p {
+  margin: 0;
+}
+
+.column-grid-card__info > *:not(:first-child) {
+  margin-top: 10px;
+}
+.column-grid-card__info > * {
+  display: block;
+}
+
+.column-grid-list__item.center .media--adapt,
+.column-grid-list__item .media--adapt .column-grid-card__image {
+  width: 100%;
+}
+
+@media screen and (max-width: 749px) {
+  .column-grid-list {
+    margin: 0;
+    width: 100%;
+  }
+  .column-without__background {
+    margin-top: 10px;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .column-grid-list.slider,
+  .column-grid-list.grid--4-col-desktop {
+    padding: 0;
+  }
+
+  .column-grid-list__item,
+  .grid--4-col-desktop .column-grid-list__item {
+    padding-bottom: 0;
+  }
+}
+
+.background-none .slider .column-grid-card__info {
+  padding-bottom: 0;
+}
+
+.background-none .column-grid-card__image-wrapper + .column-grid-card__info {
+  padding-top: 2.5rem;
+}
+
+.background-none .slider .column-grid-card__info {
+  padding-left: 0.5rem;
+}
+
+.background-none
+  .slider
+  .column-grid-card__image-wrapper
+  + .column-grid-card__info {
+  padding-left: 1.5rem;
+}
+
+.background-none
+  .column-grid-list:not(.slider)
+  .center
+  .column-grid-card__info {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+
+@media screen and (max-width: 749px) {
+  .background-none .slider .column-grid-card__info {
+    padding-bottom: 1rem;
+  }
+
+  .column-grid.background-none .slider.slider--mobile {
+    margin-bottom: 0rem;
+  }
+}
+.column-grid-card {
+  position: relative;
+  box-sizing: border-box;
+  height: 100%;
+}
+.column-grid-card:not(.column-without__background) {
+  border: var(--solid-border);
+  border-radius: var(--border-radius-lx);
+  padding: 20px 10px;
+}
+.column-grid-card.with-image:not(.column-without__background) {
+  padding: 20px;
+  margin: 1px;
+}
+@media screen and (min-width: 750px) {
+  .background-none .column-grid-card__image-wrapper {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+  }
+
+  .background-none .column-grid-list .column-grid-card__info,
+  .background-none
+    .column-grid-list:not(.slider)
+    .center
+    .column-grid-card__info {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  .column-grid-card:not(.column-without__background) {
+    padding: 40px 20px;
+  }
+  .column-grid-card.with-image:not(.column-without__background) {
+    padding: 20px;
+  }
+}
+
+.column-grid-card > .column-grid-card__image-wrapper--full-width:not(.column-grid-card-spacing) {
+  overflow: hidden;
+}
+
+.column-grid.background-none .column-grid-card {
+  border-radius: 0;
+}
+
+@media screen and (min-width: 990px) {
+  .column-grid-list__item--empty {
+    display: list-item;
+  }
+  .column-grid-card__image {
+    transition: transform var(--duration-long) ease;
+  }
+  .column-grid-card__image-wrapper:hover .column-grid-card__image {
+    transform: scale(1.03);
+  }
+}

@@ -1,0 +1,133 @@
+.predictive-search-products {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.field.color-secondary {
+  border-radius: var(--border-radius-lx);
+}
+.search-popup__form-field .field__button {
+  height: calc(100% - 2px);
+  padding-top: 2px;
+}
+.reset__button.field__button {
+  right: 60px;
+  height: max-content;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+search-form.search-popup__form+.search-popular-category h4 {
+  margin-top: 20px;
+}
+.predictive-search-media:before {
+  padding-bottom: 100%;
+  content: "";
+  display: block;
+  height: 0;
+  width: 100%;
+}
+.predictive-search-media {
+  position: relative;
+}
+.predictive-search__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.search .article-card__info {
+  margin-top: 20px;
+}
+.search .article-card__info>*:not(:last-child) {
+  margin-bottom: 5px;
+}
+.search .article-card-date-author.center {
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+.product-item {
+  border: var(--solid-border);
+  padding: 10px;
+  border-radius: var(--border-radius-lx);
+}
+.search__input.field__input {
+  padding-right: 65px;
+}
+.search-popup_content .search__input.field__input {
+  padding-right: 110px;
+}
+.search-btn-lists {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.search-popup_content h4 {
+  margin-bottom: 20px;
+}
+.search .article-card-wrapper {
+  border: var(--solid-border);
+  padding: 10px;
+  border-radius: var(--border-radius-xl);
+}
+.search .card--empty .card__information {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 15px;
+}
+.search .card.card--empty:not(.card--horizontal)>.card__content>.card__badge {
+  margin: 0px;
+}
+.search .card--empty {
+  background-color: rgb(var(--gray-background));
+  color: rgb(var(--gray-text-color));
+  border-radius: var(--border-radius-lx);
+}
+.search-input__field {
+  position: relative;
+  width: 100%;
+}
+.search-suggestion__links {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.template-search__search legend.special--medium {
+  margin: 0 auto 10px;
+}
+.search-input__field .reset__button.field__button {
+  right: 20px;
+}
+.template-search__header {
+  padding: 20px;
+  border-radius: var(--border-radius-xl);
+  border: var(--solid-border);
+}
+.field.search {
+  flex-wrap: nowrap;
+  gap: 10px;
+}
+@media screen and (min-width: 750px){
+  .search .article-card-wrapper {
+    padding: 20px;
+    border-radius: var(--border-radius-xlg);
+  }
+  .template-search__header {
+    padding: 40px;
+    border-radius: var(--border-radius-xlg);
+  }
+}
+/* Remove extra spacing for search inputs in Safari */
+input::-webkit-search-decoration {
+  -webkit-appearance: none;
+}

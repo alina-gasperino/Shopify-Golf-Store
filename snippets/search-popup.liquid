@@ -1,0 +1,75 @@
+<div class="rt-theme-popup color-secondary hide-popup" data-popup-type="search">
+  <button class="theme-popup-close color-secondary">{% render 'theme-icons', icon: 'close' %}</button>
+  <div class="popup--inner" role="dialog" aria-modal="true" aria-label="{{ 'general.search.search' | t }}">
+    <div class="search-popup_content">
+      {%- if settings.predictive_search_enabled -%}
+        <predictive-search class="search-popup__form" data-loading-text="{{ 'accessibility.loading' | t }}">
+      {%- else -%}
+        <search-form class="search-popup__form">
+      {%- endif -%}
+          <form action="{{ routes.search_url }}" method="get" role="search" class="search search-popup__form">
+            <div class="search-popup__form-field color-secondary">
+              <div class="field">
+                <label class="field__label hide" for="Search-In-Modal">{{ 'general.search.search' | t }}</label>
+                <input class="search__input field__input"
+                  id="Search-In-Modal"
+                  type="search"
+                  name="q"
+                  value="{{ search.terms | escape }}"
+                  placeholder="{{ 'general.search.search' | t }}"
+                  {%- if settings.predictive_search_enabled -%}
+                    role="combobox"
+                    aria-expanded="false"
+                    aria-owns="predictive-search-results"
+                    aria-controls="predictive-search-results"
+                    aria-haspopup="listbox"
+                    aria-autocomplete="list"
+                    autocorrect="off"
+                    autocomplete="off"
+                    autocapitalize="off"
+                    spellcheck="false"
+                  {%- endif -%}
+                >
+                <input type="hidden" name="options[prefix]" value="last">
+                <button type="reset" class="reset__button field__button {% if search.terms == blank %} hidden{% endif %}" aria-label="{{ 'general.search.reset' | t }}">
+                  {{ 'general.search.clear' | t }}
+                </button>
+                <button class="search__button field__button" aria-label="{{ 'general.search.search' | t }}">
+                  {% render 'theme-icons', icon: 'search' %}
+                </button>
+              </div>
+            </div>
+            {%- if settings.predictive_search_enabled -%}
+              <div class="predictive-search predictive-search--header" tabindex="-1" data-predictive-search>
+                <div class="predictive-search__loading-state d">
+                  {% render 'theme-icons', icon: 'loader' %}
+                </div>
+              </div>
+              <span class="predictive-search-status visually-hidden" role="status" aria-hidden="true"></span>
+            {%- endif -%}
+          </form>
+        {%- if settings.predictive_search_enabled -%}
+          </predictive-search>
+        {%- else -%}
+          </search-form>
+        {%- endif -%}
+        <div class="search-popular-category">
+          {% if settings.search_popup_heading != blank %}
+            <div class="modal-heading">
+              <h4>{{ settings.search_popup_heading }}</h4>
+            </div>
+          {% endif %}
+          {% if settings.popular_category != blank %}
+              <ul class="search-btn-lists">
+                  {% for link in linklists[settings.popular_category].links %}
+                      <li class="search-item">
+                          <a class="btn btn--outline btn--tag" href="{{ link.url }}">{{ link.title }} {% render 'theme-icons', icon: "arrow-up-right" %}</a>
+                      </li>
+                  {% endfor %}
+              </ul>
+          {% endif %}
+        </div>
+    </div>
+  </div>
+</div>
+  

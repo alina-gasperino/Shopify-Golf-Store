@@ -1,0 +1,59 @@
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement-bar-0": {
+          "type": "announcement",
+          "settings": {
+            "text": "⚡NEW! Introducing PuttDragon",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "announcement-bar-0"
+      ],
+      "disabled": true,
+      "settings": {
+        "full_width": true,
+        "color_scheme": "primary",
+        "enable_scroll": true,
+        "scrolling_speed": 2
+      }
+    },
+    "header": {
+      "type": "header",
+      "settings": {
+        "full_width": true,
+        "color_scheme": "secondary",
+        "sticky_header": true,
+        "transparent_header": false,
+        "logo": "shopify:\/\/shop_images\/Islands_Golf_Logo_Color.png",
+        "logo_width": 120,
+        "logo_width_mobile": 100,
+        "logo_position": "top-center",
+        "mobile_logo_position": "left",
+        "menu": "main-menu",
+        "menu_type_desktop": "mega",
+        "show_mega_menu_image": false,
+        "navigation_position": "inline-with-logo",
+        "enable_overlay_navigation": false,
+        "information_links": "main-menu",
+        "promo_heading": "",
+        "promo_description": "",
+        "show_social_links": false,
+        "collection": [],
+        "collection_style": "standard",
+        "enable_country_selector": true,
+        "enable_language_selector": true
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header"
+  ]
+}

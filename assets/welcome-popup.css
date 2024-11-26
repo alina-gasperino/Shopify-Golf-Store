@@ -1,0 +1,51 @@
+.rt-theme-popup[data-popup-type="welcome"] {
+  width: 700px;
+}
+.welcome-popup__image {
+width: 100%;
+border: var(--solid-border);
+border-radius: var(--border-radius-xlg);
+}
+.popup--image {
+  display: grid;
+}
+.popup-fields button#Subscribe {
+  width: 250px;
+}
+.popup--header > * {
+  margin-bottom: 10px;
+}
+.popup--header, .popup--image {
+  margin-bottom: 20px;
+}
+.popup--subscribe-form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+.popup-newsletter-form__field-wrapper .theme--error-message:not(.hide)+.field {
+margin-top: 15px;
+}
+@media screen and (max-width: 749px){
+.welcome-popup__image {
+  border-radius: var(--border-radius-xl);
+}
+.popup-fields {
+  gap: 10px;
+}
+.popup-newsletter-form__field-wrapper .theme--error-message:not(.hide)+.field {
+  margin-top: 10px;
+}
+}
+.popup-fields {
+  gap: 20px;
+  flex-wrap: nowrap;
+}
+@media screen and (max-width: 520px){
+  .popup-fields {
+      flex-wrap: wrap;
+      justify-content: center;
+  }
+  .popup-fields button#Subscribe {
+      max-width: fit-content;
+  }
+}

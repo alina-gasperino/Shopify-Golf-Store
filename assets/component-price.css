@@ -1,0 +1,127 @@
+.price > * {
+  display: inline-block;
+  vertical-align: top;
+}
+.cut--price {
+  text-decoration: line-through;
+}
+
+.price.price--unavailable {
+  visibility: hidden;
+}
+
+.price--end {
+  text-align: right;
+}
+
+.price .price-item {
+  display: inline-block;
+}
+.product .price .price-item:not(:last-child) {
+  margin-right: 10px;
+}
+
+.price__regular .price-item--regular {
+  margin-right: 0;
+}
+
+.price:not(.price--show-badge) .price-item--last:last-of-type {
+  margin: 0;
+}
+
+.price--large .price-item--sale,
+.price--large:not(.price--on-sale) .price-item--regular {
+  font-size: 18px;
+}
+
+@media screen and (min-width: 750px) {
+  .price {
+    margin-bottom: 0;
+  }
+  .price--large .price-item--sale,
+  .price--large:not(.price--on-sale) .price-item--regular {
+    font-size: 24px;
+  }
+}
+.price--large.price--on-sale .price-item--regular {
+  font-size: 16px;
+}
+
+.price--sold-out .price__availability,
+.price__regular {
+  display: block;
+}
+
+.price__sale,
+.price__availability,
+.price .price__badge-sale,
+.price .price__badge-sold-out,
+.price--on-sale .price__regular,
+.price--on-sale .price__availability {
+  display: none;
+}
+
+.price--sold-out .price__badge-sold-out,
+.price--on-sale .price__badge-sale {
+  display: inline-block;
+}
+
+.price--on-sale .price__sale {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.product .price--on-sale .price__sale {
+  gap: 0px;
+}
+.card-wrapper .price--on-sale .price__sale {
+  gap: 8px;
+}
+.predictive-search__item-content.text-center .price--on-sale .price__sale {
+  justify-content: center;
+}
+.cart-item__details .price--on-sale .price__sale,
+.predictive-search__item-content .price--on-sale .price__sale {
+  gap: 5px;
+}
+.product .card-wrapper .price--on-sale .price__sale>* {
+  margin: 0px;
+}
+.card-wrapper .text-center .price--on-sale .price__sale { 
+  justify-content: center;
+}
+.card-wrapper .right .price--on-sale .price__sale { 
+  justify-content: right;
+}
+
+.price--center {
+  display: initial;
+  justify-content: center;
+}
+
+.price--on-sale .price-item--regular {
+  text-decoration: line-through;
+}
+.card-information .unit-price {
+  display: block;
+  margin-left: 0px;
+}
+.unit-price {
+  display: inline-block;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-transform: uppercase;
+  color: rgba(var(--color-foreground),.8);
+  margin-left: 10px;
+}
+.unitprice-item>span {
+  font-size: 14px;
+  color: rgba(var(--color-foreground),.8);
+}
+
+.product .price__container.unit__price {
+  display: flex;
+  align-items: center;
+}

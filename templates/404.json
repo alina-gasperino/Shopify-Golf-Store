@@ -1,0 +1,37 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-404",
+      "settings": {}
+    },
+    "featured-collection": {
+      "type": "featured-collection",
+      "settings": {
+        "full_width": false,
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "enable_desktop_slider": false,
+        "enable_desktop_autorotate": false,
+        "change_desktop_slides_speed": 5,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "enable_mobile_autorotate": false,
+        "change_mobile_slides_speed": 5,
+        "title": "Our products",
+        "heading_size": "h3",
+        "show_description": false,
+        "heading_alignment": "center",
+        "show_view_all": true,
+        "color_scheme": "secondary",
+        "image_ratio": "adapt",
+        "show_color_swatch": false,
+        "show_secondary_image": false,
+        "enable_quick_add": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "featured-collection"
+  ]
+}

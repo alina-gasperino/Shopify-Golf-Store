@@ -1,0 +1,299 @@
+{{ 'section-contact-form.css' | asset_url | stylesheet_tag }}
+
+<div class="page-width">
+  <div class="contact--form color-{{ section.settings.color_scheme }}">
+    <div class="header--intro {{ section.settings.heading_alignment }}">
+      <div class="header--head">
+        {%- if section.settings.title != blank -%}
+          <h3 class="{{ section.settings.heading_size }}">
+            {{ section.settings.title | escape }}
+          </h3>
+        {%- else -%}
+          <h3 class="{{ section.settings.heading_size }}">{{ 'templates.contact.form.title' | t }}</h3>
+        {%- endif -%}
+      </div>
+      <div class="header--desc">
+        {{ section.settings.description }}
+      </div>
+    </div>
+    {% unless section.settings.email == blank and section.settings.phone == blank and section.settings.address == blank and section.settings.shop_time == blank %}
+    <div class="contact-form__information">
+    {% endunless %}
+    {% unless section.settings.email == blank and section.settings.phone == blank and section.settings.address == blank and section.settings.shop_time == blank %}
+      <div class="contact-information color-{{ section.settings.info_color_scheme }}">
+        {% if section.settings.email != blank %}
+          <div class="shop__email">
+            <a class="contact__flex" href="mailto:{{ section.settings.email }}">{% render 'theme-icons', icon: 'mail' %}{{ section.settings.email }}</a>
+          </div>
+        {% endif %}
+        {% if section.settings.phone != blank %}
+          <div class="shop__phone">
+            <a class="contact__flex" href="tel:{{ section.settings.phone }}">{% render 'theme-icons', icon: 'phone' %}{{ section.settings.phone }}</a>
+          </div>
+        {% endif %}
+        {% if section.settings.address != blank %}
+          <div class="shop__address contact__flex">
+            {% render 'theme-icons', icon: 'map-pin' %}
+            <div class="addresses">{{ section.settings.address }}</div>
+          </div>
+        {% endif %}
+        {% if section.settings.shop_time != blank %}
+          <div class="shop-opning__time contact__flex">
+            {% render 'theme-icons', icon: 'clock' %}
+            <div class="opning__time">{{ section.settings.shop_time }}</div>
+          </div>
+        {% endif %}
+      </div>
+      {% endunless %}
+      {%- form 'contact', action: '/contact', id: 'ContactForm', class: 'isolate' -%}
+        {%- if form.posted_successfully? -%}
+          <legend class="theme--success-message special--medium">{% render 'theme-icons', icon: 'check' %}{{ 'templates.contact.form.post_success' | t }}</legend>
+        {%- elsif form.errors -%}
+          {%- if form.errors contains 'email' -%}
+            <legend class="theme--error-message special--medium">{% render 'theme-icons', icon: 'warning' %}{{ form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email }}</legend>
+          {% else %}
+            <legend class="theme--error-message special--medium">{% render 'theme-icons', icon: 'warning' %}{{ form.errors.messages.form }}</legend>
+          {% endif %}
+        {%- endif -%}
+        <div class="contact__fields">
+          <div class="field">
+            <label class="field__label hide" for="ContactForm-name">{{ 'templates.contact.form.name' | t }}</label>
+            <input
+              required
+              class="field__input"
+              autocomplete="name"
+              type="text"
+              id="ContactForm-name"
+              name="contact[{{ 'templates.contact.form.name' | t }}]"
+              value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
+              placeholder="{{ 'templates.contact.form.name' | t }}"
+            >
+          </div>
+          <div class="field field--with-error">
+            <input
+              required
+              autocomplete="email"
+              type="email"
+              id="ContactForm-email"
+              class="field__input"
+              name="contact[email]"
+              spellcheck="false"
+              autocapitalize="off"
+              value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+              aria-required="true"
+              {% if form.errors contains 'email' %}
+                aria-invalid="true"
+                aria-describedby="ContactForm-email-error"
+              {% endif %}
+              placeholder="{{ 'templates.contact.form.email' | t }}"
+            >
+          </div>
+        </div>
+        <div class="field">
+          <label class="field__label hide" for="ContactForm-phone">{{ 'templates.contact.form.phone' | t }}</label>
+          <input
+            type="tel"
+            id="ContactForm-phone"
+            class="field__input"
+            autocomplete="tel"
+            name="contact[{{ 'templates.contact.form.phone' | t }}]"
+            pattern="[0-9\-]*"
+            value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+            placeholder="{{ 'templates.contact.form.phone' | t }}"
+          >
+        </div>
+        <div class="field">
+          <label class="form__label field__label hide" for="ContactForm-body">
+            {{- 'templates.contact.form.comment' | t -}}
+          </label>
+          <textarea
+            rows="10"
+            required
+            id="ContactForm-body"
+            class="text-area field__input"
+            name="contact[{{ 'templates.contact.form.comment' | t }}]"
+            placeholder="{{ 'templates.contact.form.comment' | t }}"
+          >
+            {{- form.body -}}
+          </textarea>
+        </div>
+        <div class="contact__button">
+          <button type="submit" class="btn btn--primary">
+            {{ 'templates.contact.form.send' | t }} {% render 'theme-icons', icon: 'arrow-up-right' %}
+          </button>
+        </div>
+      {%- endform -%}
+    {% unless section.settings.email == blank and section.settings.phone == blank and section.settings.address == blank and section.settings.shop_time == blank %}
+    </div>
+    {% endunless %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.contact-form.name",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": [
+      "header",
+      "footer"
+    ]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.layout.content"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "options": [
+        {
+          "value": "primary",
+          "label": "t:sections.all.color_scheme.primary.label"
+        },
+        {
+          "value": "secondary",
+          "label": "t:sections.all.color_scheme.secondary.label"
+        },
+        {
+          "value": "light",
+          "label": "t:sections.all.color_scheme.light.label"
+        },
+        {
+          "value": "dark",
+          "label": "t:sections.all.color_scheme.dark.label"
+        },
+        {
+          "value": "gray",
+          "label": "t:sections.all.color_scheme.gray.label"
+        }
+      ],
+      "default": "secondary",
+      "label": "t:sections.all.color_scheme.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.section_header.content"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "t:sections.all.heading.label",
+      "default": "We are at your service!"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "t:sections.all.description.label",
+      "default": "<p>If you have any general inquiries, sales-related questions, or press inquiries, please provide us with  <br> your contact information below. We will promptly get back to you to assist you further.</p>"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h3",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h4",
+          "label": "t:sections.all.heading_size.options__3.label"
+        },
+        {
+          "value": "h5",
+          "label": "t:sections.all.heading_size.options__4.label"
+        }
+      ],
+      "default": "h3",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.all.text_alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.all.text_alignment.options__2.label"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.all.text_alignment.options__3.label"
+        }
+      ],
+      "default": "center",
+      "label": "t:sections.all.heading_alignment.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.contact-form.settings.contact_info.content"
+    },
+    {
+      "type": "select",
+      "id": "info_color_scheme",
+      "options": [
+        {
+          "value": "primary",
+          "label": "t:sections.all.color_scheme.primary.label"
+        },
+        {
+          "value": "secondary",
+          "label": "t:sections.all.color_scheme.secondary.label"
+        },
+        {
+          "value": "light",
+          "label": "t:sections.all.color_scheme.light.label"
+        },
+        {
+          "value": "dark",
+          "label": "t:sections.all.color_scheme.dark.label"
+        },
+        {
+          "value": "gray",
+          "label": "t:sections.all.color_scheme.gray.label"
+        }
+      ],
+      "default": "gray",
+      "label": "t:sections.all.color_scheme.label"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "t:sections.contact-form.settings.contact_info.email.label",
+      "default": "example@gmail.com"
+    },
+    {
+      "type": "text",
+      "id": "phone",
+      "label": "t:sections.contact-form.settings.contact_info.phone.label",
+      "default": "+1 123-456-7890"
+    },
+    {
+      "type": "richtext",
+      "id": "address",
+      "label": "t:sections.contact-form.settings.contact_info.address.label",
+      "default": "<p>United states</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "shop_time",
+      "label": "t:sections.contact-form.settings.contact_info.shop_time.label",
+      "default": "<p>Monday — Friday, 9am — 5pm ET</p>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.contact-form.presets.name"
+    }
+  ]
+}
+{% endschema %}

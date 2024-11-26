@@ -1,0 +1,108 @@
+.mini-cart-popup-wrapper {
+  position: relative;
+}
+
+.mini-cart-popup-product__image {
+  width: 100px;
+}
+.mini-cart-popup-product__image .cart--product-link-image:focus,
+.mini-cart-popup-product__image .cart--product-link-image:focus-visible,
+#mini-cart-popup:focus-visible {
+  outline: none;
+  box-shadow: none;
+  border: 0;
+}
+.mini-cart-popup-wrapper .mini-cart-popup {
+  display: block;
+}
+
+.mini-cart-popup.animate {
+  transition: transform var(--duration-short) ease,
+    visibility 0s var(--duration-short) ease;
+}
+
+.mini-cart-popup.active {
+  transform: translateY(0);
+  transition: transform var(--duration-default) ease, visibility 0s;
+  visibility: visible;
+}
+.mini-cart-popup-product-info .discounts--badge {
+  display: flex;
+  align-items: center;
+}
+.mini-cart-popup__header {
+  align-items: flex-start;
+  display: flex;
+}
+.mini-cart-popup-wrapper .cart__item-prices {
+  display: flex;
+  flex-wrap: wrap;
+}
+.mini-cart-popup-wrapper .cart__item-prices .unit-price {
+  font-size: 14px;
+}
+.rt-theme-popup[data-popup-type="mini-cart-popup"] {
+  width: 560px;
+}
+.mini-cart-popup__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.mini-cart-popup__links > * {
+  width: calc(50% - 5px);
+  margin-top: 20px;
+}
+.mini-cart-popup__links [name="checkout"] {
+  width: 100%;
+}
+.mini-cart-popup__heading {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.mini-cart-popup__heading .icon-checkmark {
+  color: rgb(var(--color-foreground));
+  margin-right: 1rem;
+  width: 1.3rem;
+}
+
+.mini-cart-popup__close {
+  margin-top: -2rem;
+  margin-right: -3rem;
+}
+
+.mini-cart-popup__links {
+  text-align: center;
+}
+
+.mini-cart-popup-product {
+  align-items: flex-start;
+  display: flex;
+  gap: 20px;
+  padding-top: 20px;
+}
+.mini-cart-popup-product-info > *:last-child {
+  margin-bottom: 0;
+}
+.mini-cart-popup-product-info > * {
+  margin-bottom: 5px;
+  display: block;
+}
+.mini-cart-popup-product dl {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+@media screen and (max-width: 749px){
+  .mini-cart-popup__links > * {
+    margin-top: 15px;
+    width: 100%;
+  }
+  .mini-cart-popup__links {
+    display: block;
+  }
+}

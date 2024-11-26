@@ -1,0 +1,33 @@
+.video-section__media {
+  position: relative;
+  padding-bottom: 56.25%;
+}
+.video-section__media {
+  border: var(--solid-border);
+  border-radius: var(--border-radius-xl);
+}
+.video-section__media.deferred-media:after {
+  content: none;
+}
+
+.video-section__poster.deferred-media__poster:focus {
+  outline-offset: 0.3rem;
+}
+
+.video-section__media iframe {
+  background-color: rgba(var(--color-foreground), 0.03);
+  border: 0;
+}
+
+.video-section__poster,
+.video-section__media iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (min-width: 750px){
+  .video-section__media {
+    border-radius: var(--border-radius-xlg);
+  }
+}

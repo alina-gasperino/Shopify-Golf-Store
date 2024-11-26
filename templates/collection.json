@@ -1,0 +1,96 @@
+{
+  "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "settings": {}
+    },
+    "countdown": {
+      "type": "countdown-timer",
+      "blocks": {
+        "content": {
+          "type": "content",
+          "settings": {}
+        },
+        "timer": {
+          "type": "timer",
+          "settings": {}
+        },
+        "button": {
+          "type": "button",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "content",
+        "timer",
+        "button"
+      ],
+      "settings": {
+        "reduce_margins": true,
+        "color_scheme": "secondary"
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 12,
+        "columns_desktop": 4,
+        "infinite_scroll": true,
+        "columns_mobile": "2",
+        "color_scheme": "secondary",
+        "image_ratio": "adapt",
+        "show_color_swatch": true,
+        "show_secondary_image": true,
+        "enable_quick_add": true,
+        "enable_filtering": true,
+        "filter_type": "popup",
+        "color_filter": true,
+        "enable_sorting": true
+      }
+    },
+    "collection-list": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection-1": {
+          "type": "featured_collection",
+          "settings": {}
+        },
+        "featured_collection-2": {
+          "type": "featured_collection",
+          "settings": {}
+        },
+        "featured_collection-3": {
+          "type": "featured_collection",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "featured_collection-1",
+        "featured_collection-2",
+        "featured_collection-3"
+      ],
+      "settings": {
+        "full_width": false,
+        "columns_desktop": 3,
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "enable_mobile_autorotate": false,
+        "change_mobile_slides_speed": 5,
+        "heading_size": "h3",
+        "heading_alignment": "center",
+        "color_scheme": "secondary",
+        "collection_style": "standard",
+        "image_ratio": "square",
+        "enable_badge": true,
+        "text_alignment": "center",
+        "show_view_all": false
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "countdown",
+    "product-grid",
+    "collection-list"
+  ]
+}

@@ -1,0 +1,8 @@
+.list-payment,
+.payment__text {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+}

@@ -1,0 +1,129 @@
+{% unless section.settings.full_width %}<div class="page-width">{% endunless %}
+  <div class="auto-scrolling-text{% if section.settings.enable_scroll %} marquee3k{% endif %}" data-speed="{{ section.settings.scrolling_speed }}" data-pausable="t">
+    <div class="auto-scrolling-text-inner column--{{ section.blocks.size }}">
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'scrolling_text' -%}
+            <div class="auto-scrolling-text--block" role="region" {{ block.shopify_attributes }}>
+              {%- if block.settings.text != blank -%}
+                {%- if block.settings.link != blank -%}
+                  <a href="{{ block.settings.link }}" class="auto-scrolling-text__link link link--text focus-inset animate-arrow">
+                {%- endif -%}
+                    <h3 class="auto-scrolling-text__message {{ block.settings.title_size }}">
+                     {{ block.settings.text | escape }}
+                    </h3>
+                {%- if block.settings.link != blank -%}
+                  </a>
+                {%- endif -%}
+              {%- endif -%}
+            </div>
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+  </div>
+{% unless section.settings.full_width %}</div>{% endunless %}
+{{ 'auto-scrolling-text.css' | asset_url | stylesheet_tag }}
+
+{% schema %}
+{
+  "name": "t:sections.auto-scrolling-text.name",
+  "max_blocks": 3,
+  "tag": "section",
+  "disabled_on": {
+    "groups": [
+      "header",
+      "footer"
+    ]
+  },
+  "class": "auto-scrolling-text-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.layout.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "t:sections.all.full_width.label",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_scroll",
+      "label": "t:sections.auto-scrolling-text.settings.scrolling.label",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "scrolling_speed",
+      "label": "t:sections.auto-scrolling-text.settings.scrolling.speed",
+      "min": 1,
+      "max": 5,
+      "unit": "s",
+      "default": 2
+    }
+  ],
+  "blocks": [
+    {
+      "type": "scrolling_text",
+      "name": "t:sections.auto-scrolling-text.blocks.scrolling_text.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "default": "⚡Auto-scrolling text",
+          "label": "t:sections.auto-scrolling-text.blocks.scrolling_text.settings.text.label"
+        },
+        {
+          "type": "select",
+          "id": "title_size",
+          "options": [
+            {
+              "value": "h2",
+              "label": "t:sections.all.heading_size.options__1.label"
+            },
+            {
+              "value": "h3",
+              "label": "t:sections.all.heading_size.options__2.label"
+            },
+            {
+              "value": "h4",
+              "label": "t:sections.all.heading_size.options__3.label"
+            },
+            {
+              "value": "h5",
+              "label": "t:sections.all.heading_size.options__4.label"
+            }
+          ],
+          "default": "h4",
+          "label": "t:sections.all.heading_size.label"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "t:sections.auto-scrolling-text.blocks.scrolling_text.settings.link.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.auto-scrolling-text.presets.name",
+      "blocks": [
+        {
+          "type": "scrolling_text"
+        },
+        {
+          "type": "scrolling_text"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

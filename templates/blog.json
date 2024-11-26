@@ -1,0 +1,23 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-blog",
+      "settings": {
+        "full_width": false,
+        "maximum_blogs": 6,
+        "blogs_per_row": 3,
+        "heading_size": "h2",
+        "heading_alignment": "center",
+        "color_scheme": "secondary",
+        "show_image": true,
+        "image_height": "small",
+        "show_date": true,
+        "show_author": false,
+        "text_alignment": "center"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

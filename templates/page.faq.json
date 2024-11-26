@@ -1,0 +1,99 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "full_width": false,
+        "heading_size": "h2",
+        "heading_alignment": "center"
+      }
+    },
+    "rich-text": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Talk about your brand",
+            "heading_size": "h3"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Share information about your brand with your customers.<br\/> Describe a product, make announcements, or welcome customers to your store.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text"
+      ],
+      "settings": {
+        "full_width": false,
+        "content_alignment": "center",
+        "color_scheme": "secondary"
+      }
+    },
+    "collapsible-panel": {
+      "type": "collapsible-panel",
+      "blocks": {
+        "collapsible_row1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Collapsible row list",
+            "row_content": "<p>Add some content for the collapsible row here.<\/p>",
+            "page": ""
+          }
+        },
+        "collapsible_row2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Collapsible row list",
+            "row_content": "<p>Add some content for the collapsible row here.<\/p>",
+            "page": ""
+          }
+        },
+        "collapsible_row3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Collapsible row list",
+            "row_content": "<p>Add some content for the collapsible row here.<\/p>",
+            "page": ""
+          }
+        },
+        "collapsible_row4": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Collapsible row list",
+            "row_content": "<p>Add some content for the collapsible row here.<\/p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row1",
+        "collapsible_row2",
+        "collapsible_row3",
+        "collapsible_row4"
+      ],
+      "settings": {
+        "full_width": false,
+        "color_scheme": "primary",
+        "subheading": "",
+        "title": "",
+        "heading_size": "h3",
+        "heading_alignment": "center",
+        "collapsible_color_scheme": "gray",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich-text",
+    "collapsible-panel"
+  ]
+}

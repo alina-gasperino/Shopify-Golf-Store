@@ -1,0 +1,16 @@
+.quick-links-list {
+  position: relative;
+  width: 100%;
+  list-style: none;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+@media screen and (min-width: 750px){
+  .quick-links-list {
+    gap: 20px;
+  }
+}

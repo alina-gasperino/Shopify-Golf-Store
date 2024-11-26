@@ -1,0 +1,97 @@
+{{ 'welcome-popup.css' | asset_url | stylesheet_tag }}
+<div
+  class="rt-theme-popup color-{{ settings.welcome_popup_color_scheme }} {% unless settings.enable_test_mode %}hide-popup{% endunless %}"
+  data-popup-delay="{{ settings.welcome_popup_delay | times: 1000 }}"
+  data-show-popup-again="{{ settings.welcome_popup_show_again }}"
+  {% if request.design_mode and settings.enable_test_mode %}
+    data-popup-type="welcome"
+  {% else %}
+    {% unless request.design_mode %}
+      data-popup-type="welcome"
+    {% endunless %}
+  {% endif %}
+>
+  <div class="popup--inner" role="dialog" aria-modal="true" aria-label="welcome-popup">
+    <div class="welcome-popup__content">
+      {% if settings.welcome_popup_image %}
+        <div class="popup--image">
+          {{
+            settings.welcome_popup_image
+            | image_url: width: 750
+            | image_tag:
+              sizes: '50vw',
+              widths: '275, 550, 750, 1420',
+              class: 'welcome-popup__image loading__animation'
+          }}
+          
+        </div>
+      {% endif %}
+      <div class="popup--content text-center">
+        {% if settings.welcome_popup_heading != blank or settings.welcome_popup_description != blank %}
+          <div class="popup--header">
+            <h3>{{ settings.welcome_popup_heading }}</h3>
+            <div class="rte">{{ settings.welcome_popup_description }}</div>
+          </div>
+        {% endif %}
+        <div class="popup--subscribe-form">
+          {% form 'customer', id: 'welcome-popup', class: 'popup-newsletter-form' %}
+            <input type="hidden" name="contact[tags]" value="newsletter">
+            <div class="popup-newsletter-form__field-wrapper">
+              {%- if form.posted_successfully? -%}
+                <legend class="theme--success-message">
+                  {% render 'theme-icons', icon: 'check' %}
+                  {{- 'newsletter.success' | t }}
+                </legend>
+              {%- else -%}
+                <legend class="theme--error-message special--base{% unless form.errors %} hide{% endunless %}">
+                    {% render 'theme-icons', icon: 'warning' %}
+                    {{- form.errors.translated_fields.email | capitalize }}
+                    {{ form.errors.messages.email -}}
+                </legend>
+                <div class="field popup-fields">
+                  <label class="field__label hide text-left" for="NewsletterForm--popup">
+                    {{ 'newsletter.label' | t }}
+                  </label>
+                  <input
+                    id="NewsletterForm--popup"
+                    type="email"
+                    name="contact[email]"
+                    class="field__input"
+                    value="{{ form.email }}"
+                    aria-required="true"
+                    autocorrect="off"
+                    autocapitalize="off"
+                    autocomplete="email"
+                    {% if form.errors %}
+                      autofocus
+                      aria-invalid="true"
+                      aria-describedby="Newsletter-error--{{ section.id }}"
+                    {% elsif form.posted_successfully? %}
+                      aria-describedby="Newsletter-success--{{ section.id }}"
+                    {% endif %}
+                    placeholder="{{ 'newsletter.placeholder' | t }}"
+                    required
+                  >
+                  <button
+                    type="submit"
+                    class="btn btn--primary btn-newsletter__submit"
+                    name="commit"
+                    id="Subscribe-popup"
+                    tabindex="0"
+                    aria-label="{{ 'newsletter.button_label' | t }}"
+                  >
+                    {{ 'newsletter.button_label' | t -}}
+                    {%- render 'theme-icons', icon: 'arrow-up-right' %}
+                  </button>
+                </div>
+              {% endif %}
+            </div>
+          {% endform %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="theme-popup-close color-{{ settings.welcome_popup_color_scheme }}" aria-label="Close">
+    {% render 'theme-icons', icon: 'close' %}
+  </button>
+</div>

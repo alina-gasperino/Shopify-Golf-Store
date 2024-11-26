@@ -1,0 +1,109 @@
+{{ 'customer.css' | asset_url | stylesheet_tag }}
+
+<div class="customer customer--box register color-secondary">
+  <div class="header--intro center">
+    <div class="header--head">
+      <h1 class="h3">
+        {{ 'customer.register.title' | t }}
+      </h1>
+    </div>
+  </div>
+  {%- form 'create_customer', novalidate: 'novalidate' -%}
+    {%- if form.errors.messages.form != blank -%}
+      <legend class="theme--error-message special--medium message__field">{% render 'theme-icons', icon: 'warning' %}{{ form.errors.messages.form }}</legend>
+    {%- endif -%}
+    <div class="field">
+      <label for="RegisterForm-FirstName" class="hide">
+        {{ 'customer.register.first_name' | t }}
+      </label>
+      <input
+        type="text"
+        name="customer[first_name]"
+        id="RegisterForm-FirstName"
+        {% if form.first_name %}
+          value="{{ form.first_name }}"
+        {% endif %}
+        autocomplete="given-name"
+        placeholder="{{ 'customer.register.first_name' | t }}"
+      >
+    </div>
+    <div class="field">
+      <label for="RegisterForm-LastName" class="hide">
+        {{ 'customer.register.last_name' | t }}
+      </label>
+      <input
+        type="text"
+        name="customer[last_name]"
+        id="RegisterForm-LastName"
+        {% if form.last_name %}
+          value="{{ form.last_name }}"
+        {% endif %}
+        autocomplete="family-name"
+        placeholder="{{ 'customer.register.last_name' | t }}"
+      >
+    </div>
+    <div class="field">
+      <label for="RegisterForm-email" class="hide">
+        {{ 'customer.register.email' | t }}
+      </label>
+      <input
+        type="email"
+        name="customer[email]"
+        id="RegisterForm-email"
+        {% if form.email %}
+          value="{{ form.email }}"
+        {% endif %}
+        spellcheck="false"
+        autocapitalize="off"
+        autocomplete="email"
+        aria-required="true"
+        {% if form.errors contains 'email' %}
+          aria-invalid="true"
+          aria-describedby="RegisterForm-email-error"
+        {% endif %}
+        placeholder="{{ 'customer.register.email' | t }}"
+      >
+    </div>
+    
+    {%- if form.errors contains 'email' -%}
+      <legend class="theme--error-message special--medium email__field">
+        {% render 'theme-icons', icon: 'warning' %}
+        {{ form.errors.translated_fields.email | capitalize }}
+        {{ form.errors.messages.email }}.
+      </legend>
+    {%- endif -%}
+    <div class="field">
+      <label for="RegisterForm-password" class="hide">
+        {{ 'customer.register.password' | t }}
+      </label>
+      <input
+        type="password"
+        name="customer[password]"
+        id="RegisterForm-password"
+        aria-required="true"
+        {% if form.errors contains 'password' %}
+          aria-invalid="true"
+          aria-describedby="RegisterForm-password-error"
+        {% endif %}
+        placeholder="{{ 'customer.register.password' | t }}"
+      >
+    </div>
+    {%- if form.errors contains 'password' -%}
+      <legend class="theme--error-message special--medium password__field">
+        {% render 'theme-icons', icon: 'warning' %}
+        {{ form.errors.translated_fields.password | capitalize }}
+        {{ form.errors.messages.password }}.
+      </legend>
+    {%- endif -%}
+    <button type="submit" class="btn btn--primary">
+      {{ 'customer.register.submit' | t }}  {% render 'theme-icons', icon: 'arrow-up-right' %}
+    </button>
+    <p class="customer-redirect__link">{{ 'customer.register.login_html' | t: link: routes.account_login_url }}</p>
+  {%- endform -%}
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.main-register.name"
+}
+{% endschema %}

@@ -1,0 +1,45 @@
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-article-card.css' | asset_url | stylesheet_tag }}
+{{ 'section-main-blog.css' | asset_url | stylesheet_tag }}
+
+<div class="related-articles page-width page-width--narrow">
+  <div class="header--intro {{ block.settings.heading_alignment }}">
+    <div class="header--head">
+      <h2 class="{{ block.settings.heading_size }}">{% if block.settings.heading == blank %}{{ 'blogs.article.reading_next' | t }}{% else %}{{ block.settings.heading }}{% endif %}</h2>
+    </div>
+  </div>
+  <div class="blog-articles column--2">
+    {%- if blog.previous_article -%}
+      <div class="blog-articles__article article">
+        {%- render 'article-card',
+          article: blog.previous_article,
+          text_alignment: block.settings.text_alignment,
+          media_height: block.settings.image_height,
+          media_aspect_ratio: article.image.aspect_ratio,
+          show_author: block.settings.show_author,
+          show_image: block.settings.show_image,
+          color_scheme: block.settings.color_scheme,
+          article_per_row: 2,
+          show_date: block.settings.show_date,
+          show_excerpt: true
+        -%}
+      </div>
+    {%- endif -%}
+    {%- if blog.next_article -%}
+      <div class="blog-articles__article article">
+        {%- render 'article-card',
+          article: blog.next_article,
+          text_alignment: block.settings.text_alignment,
+          media_height: block.settings.image_height,
+          media_aspect_ratio: article.image.aspect_ratio,
+          show_author: block.settings.show_author,
+          show_image: block.settings.show_image,
+          color_scheme: block.settings.color_scheme,
+          article_per_row: 2,
+          show_date: block.settings.show_date,
+          show_excerpt: true
+        -%} 
+      </div>
+    {%- endif -%}
+  </div>
+</div>

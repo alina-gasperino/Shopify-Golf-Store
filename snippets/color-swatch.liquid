@@ -1,0 +1,67 @@
+{% for option in product.options %}
+  {% liquid 
+      assign colorOption =  option | downcase
+  %}
+  {% if colorOption == 'color' or colorOption == 'colour' %}
+      {% liquid 
+          assign index = forloop.index0
+          assign colorlist = ''
+          assign color = ''
+          assign counter = 0
+      %}
+      {% for variant in product.variants %}
+          {% assign color = variant.options[index] %}
+          {% unless colorlist contains color %}
+              {% liquid 
+                  assign counter = counter | plus: 1 
+              %}
+              {% if counter > 5 %}
+                <div class="swatch-list color__more">
+                    <a href="{{ product.url }}" aria-label="view-product">
+                    {% render 'theme-icons', icon: 'plus' %}
+                    </a>
+                </div>
+                {% break %}
+              {% endif %}
+              {% liquid
+                assign colorHexCode = ''
+                assign colorValueDowncase = color | handleize
+                assign swatchConfig = settings.custom_color_swatch | newline_to_br | split: '<br />'
+                for colorItem in swatchConfig
+                  assign splitItem = colorItem | split: ':'
+                  assign colorName = splitItem.first | handleize
+                  if colorValueDowncase == colorName
+                    assign colorValue = splitItem.last | strip 
+                    if colorValue contains '#'
+                      assign colorHexCode = colorValue
+                    endif
+                    break
+                  endif
+                endfor
+                assign color_file_name = color | handle | append: '.png'
+                assign color_image = color_file_name | file_img_url: '40x40' | prepend: 'https:' | split: '?' | first
+              -%}
+              {% if color.swatch %}
+                {%- liquid
+                  assign swatch = color.swatch
+                  assign swatch_value = null
+                  if swatch.image
+                    assign color_image = swatch.image | image_url: width: 50
+                  elsif swatch.color
+                    assign colorHexCode = 'rgb(' | append: swatch.color.rgb | append: ')'
+                  endif
+                -%}
+              {% endif %}
+              <div class="swatch-list">
+                <input type="radio" class="radio-card-swatch" data-variant-id="{{ variant.id }}" name="card--swatch-{{ product.id }}{{ favorite }}" id="card--swatch-{{ color | handleize }}{{ placement }}-{{ product.id }}" {% if counter == 1 %}checked{% endif %}>
+                <label for="card--swatch-{{ color | handleize }}{{ placement }}-{{ product.id }}" title="{{ color }}" class="grid--color-swatch color__swatches" style="background-color: {% if colorHexCode != '' %}{{ colorHexCode }}{% else %}{{ color | handleize }}{% endif %};{% if images[color_file_name] != blank or color_image != blank %}  background-image: url({{ color_image }});{% endif %} background-color: {% if swatch_color != blank %}{{ swatch_color }}{% else %}{{ colorName }}{% endif %}; background-image:{% if swatch_image != blank %}{{ swatch_image }}{% elsif images[color_file_name] != blank %}url({{ color_image }});{% endif %}"><span class="hide">{{ color | downcase }}</span></label>
+              </div>
+              {% capture tempList %}{{ colorlist | append: color | append: ' ' }}{% endcapture %}
+              {% assign colorlist = tempList %}
+          {% endunless %}
+      {% endfor %}
+  {% endif %}
+{% endfor %}
+<noscript>
+{{ product | json }}
+</noscript>

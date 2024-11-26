@@ -1,0 +1,190 @@
+{{ 'quick-links.css' | asset_url | stylesheet_tag }}
+<div class="section-quick-links{% unless section.settings.full_width %} page-width{% endunless %}{% unless settings.extra_space %} page-width-with-extra{% endunless %}">
+  <div class="header--intro {{ section.settings.heading_alignment }}">
+    {%- if section.settings.title != blank -%}
+      <div class="header-head">
+        <legend class="subheading special--base bold">{{ section.settings.subheading | escape }}</legend>
+        <h2 class="heading {{ section.settings.heading_size }}">{{ section.settings.title | escape }}</h2>
+      </div>
+    {%- endif -%}
+    {%- if section.settings.description != blank
+      or section.settings.show_description
+      and section.settings.collection.description != empty
+    -%}
+      <div class="header-desc rte">
+        {%- if section.settings.show_description -%}
+          {{ section.settings.collection.description }}
+        {%- else -%}
+          {{ section.settings.description -}}
+        {%- endif %}
+      </div>
+    {%- endif -%}
+  </div>
+  {% if section.blocks.size > 0 %}
+    <div class="quick-links-block">
+      <ul class="quick-links-list">
+        {% for block in section.blocks %}
+          <li>
+            <a
+              class="quick-link-item btn btn--{{ section.settings.button_style }}"
+              {% if block.settings.link_url == blank %}
+                role="link" aria-disabled="true"
+              {% else %}
+                href="{{ block.settings.link_url }}"
+              {% endif %}
+              {{ block.shopify_attributes }}
+            >
+              {{- block.settings.title -}}
+              {%- render 'theme-icons', icon: 'arrow-up-right' -%}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.quick-links.name",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.layout.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "t:sections.all.full_width.label",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "options": [
+        {
+          "value": "primary",
+          "label": "t:sections.all.button_style.options__1.label"
+        },
+        {
+          "value": "secondary",
+          "label": "t:sections.all.button_style.options__2.label"
+        },
+        {
+          "value": "outline",
+          "label": "t:sections.all.button_style.options__3.label"
+        }
+      ],
+      "default": "outline",
+      "label": "t:sections.quick-links.settings.button.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.section_header.content"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "t:sections.all.subheading.label"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "default": "Quick links",
+      "label": "t:sections.all.heading.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h3",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h4",
+          "label": "t:sections.all.heading_size.options__3.label"
+        },
+        {
+          "value": "h5",
+          "label": "t:sections.all.heading_size.options__4.label"
+        }
+      ],
+      "default": "h3",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.all.text_alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.all.text_alignment.options__2.label"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.all.text_alignment.options__3.label"
+        }
+      ],
+      "default": "center",
+      "label": "t:sections.all.heading_alignment.label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "links",
+      "name": "t:sections.quick-links.name",
+      "limit": 10,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "t:sections.quick-links.blocks.settings.title.label",
+          "default": "Link title"
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "t:sections.quick-links.blocks.settings.url.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.quick-links.presets.name",
+      "blocks": [
+        {
+          "type": "links"
+        },
+        {
+          "type": "links"
+        },
+        {
+          "type": "links"
+        },
+        {
+          "type": "links"
+        },
+        {
+          "type": "links"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

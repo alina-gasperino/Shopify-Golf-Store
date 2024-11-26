@@ -1,0 +1,145 @@
+.before-after__images {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  user-select: none;
+  border: var(--solid-border);
+  border-radius: var(--border-radius-xl);
+}
+.comparison__image {
+  width: 100%;
+}
+.after__overlay-image {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  object-fit: cover;
+  object-position: center;
+}
+.after__image {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 5px 10px -2px #0000004d;
+  clip-path: inset(0 0 0 calc(var(--before-after-initial-drag-position, 50%) + var(--image-diversion-offset, 0px)));
+}
+.before-after__images .placeholder-svg {
+  height: 100%;
+}
+.banner__media-image {
+  display: grid;
+}
+.image__diversion {
+  top: 50%;
+  left: var(--before-after-initial-drag-position);
+  z-index: 1;
+  height: 100%;
+  width: max-content;
+  touch-action: none;
+  transform: translate(calc(1 * -50% + var(--image-diversion-offset, 0px)),-50%);
+  cursor: grab;
+  will-change: transform;
+  place-items: center;
+  display: grid;
+  position: relative;
+}
+.image__diversion:before {
+  content: "";
+  height: 100%;
+  width: 1px;
+  background: black;
+  z-index: -1;
+  position: absolute;
+}
+.diversion-resize__svg {
+  height: 45px;
+  min-width: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  background: #fff;
+  border: 1px solid;
+  border-radius: var(--border-radius-xl);
+}
+.media__not-adapt .comparison__image {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  height: 100%;
+  object-fit: cover;
+}
+.after__image:not(.after__image-adapt) .after__overlay-image {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.image__comparison-slider:before {
+  position: absolute;
+  content: "";
+  width: 58px;
+  height: 58px;
+  left: calc(var(--devirsion-left) - 30px);
+  cursor: grab;
+}
+.image__comparison-slider:focus,
+.image__comparison-slider:active {
+  border: none;
+  outline: none;
+}
+.primary__image-adapt .media,
+.primary__image-adapt .media > .comparison__image,
+.primary__image-adapt .media > .placeholder-svg {
+  position: relative;
+}
+.image-diversion__cursor-wrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+@media screen and (max-width: 749px) {
+  .primary__image-adapt .media > .placeholder-svg {
+    min-height: 18rem;
+  }
+  .primary__image-small {
+    height: 20rem;
+  }
+  .primary__image-medium {
+    height: 25rem;
+  }
+  .primary__image-large {
+    height: 30rem;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .primary__image-small {
+    min-height: 30rem;
+  }
+  .primary__image-medium {
+    min-height: 40rem;
+  }
+  .primary__image-large {
+    min-height: 50rem;
+  }
+}
+@media screen and (min-width: 990px) {
+  .before-after__images {
+    border-radius: var(--border-radius-xlg);
+  }
+  .diversion-resize__svg {
+    height: 58px;
+    min-width: 58px;
+    border-radius: var(--border-radius-xlg);
+  }
+}
+
+
+

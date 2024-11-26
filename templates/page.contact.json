@@ -1,0 +1,32 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "full_width": false,
+        "heading_size": "h2",
+        "heading_alignment": "center"
+      }
+    },
+    "form": {
+      "type": "contact-form",
+      "settings": {
+        "color_scheme": "secondary",
+        "title": "We are at your service!",
+        "description": "<p>If you have any general inquiries, sales-related questions, or press inquiries, please provide us with <\/p><p>your contact information below. We will promptly get back to you to assist you further.<\/p>",
+        "heading_size": "h3",
+        "heading_alignment": "center",
+        "info_color_scheme": "gray",
+        "email": "example@gmail.com",
+        "phone": "+1 123-456-7890",
+        "address": "<p>United states<\/p>",
+        "shop_time": "<p>Monday — Friday, 9am — 5pm ET<\/p>"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "form"
+  ]
+}

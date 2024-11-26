@@ -1,0 +1,95 @@
+.countdown__timer {
+  display: flex;
+  align-items: center;
+}
+.section__countdown-timer {
+  border: var(--solid-border);
+}
+.countdown__timer.countdown__timer--hidden {
+  display: none;
+}
+.countdown__timer .h4 {
+  border-radius: var(--border-radius-lx);
+  height: 50px;
+  min-width: 50px;
+  padding: 10px;
+  line-height: 30px;
+  max-width: fit-content;
+  margin: 0px auto;
+}
+.countdown__timer-block {
+  text-align: center;
+}
+.countdown__timer-block > legend {
+  margin-top: 5px;
+}
+.countdown__timer-message {
+  max-width: fit-content;
+}
+.countdown__text-wrapper > *:not(:last-child) {
+  margin-bottom: 15px;
+}
+@media screen and (min-width: 750px) {
+  .section__countdown-timer.reduce__margin {
+    margin-top: calc(-1 * var(--spacing-sections-desktop) + 20px);
+  }
+}
+@media screen and (max-width: 749px) {
+  .section__countdown-timer.reduce__margin {
+    margin-top: calc(-1 * var(--spacing-sections-mobile) + 20px);
+  }
+}
+@media screen and (max-width: 989px) {
+  .countdown__block:not(:last-child) {
+    margin-bottom: 15px;
+  }
+  .countdown__timer {
+    gap: 10px;
+  }
+  .section__countdown-timer {
+    padding: 20px;
+    border-radius: var(--border-radius-xl);
+  }
+  .section__countdown-timer {
+    text-align: center;
+  }
+  .section__countdown-timer .countdown__timer {
+    justify-content: center;
+  }
+  .countdown__button,
+  .countdown__timer-message {
+    margin: 0 auto;
+  }
+}
+@media screen and (min-width: 990px) {
+  .countdown__block {
+    display: flex;
+    width: 100%;
+  }
+  .countdown__timer {
+    gap: 20px;
+  }
+  .section__countdown-timer {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+    grid-gap: 20px;
+    gap: 20px;
+    padding: 40px;
+    align-items: center;
+    border-radius: var(--border-radius-xlg);
+  }
+  .countdown__timer {
+    justify-content: center;
+  }
+  .countdown__block:last-child {
+    justify-content: right;
+  }
+  .countdown__block:first-child {
+    justify-content: left;
+  }
+  .countdown__block:nth-child(2):not(:last-child) {
+    justify-content: center;
+  }
+}

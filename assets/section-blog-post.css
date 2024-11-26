@@ -1,0 +1,120 @@
+.article-template__hero-small {
+  height: 11rem;
+}
+
+.article-template__hero-medium {
+  height: 22rem;
+}
+.article-template__comments-comment {
+  width: 100%;
+  border: 0;
+}
+.article-template__hero-large {
+  height: 33rem;
+}
+.article-template > *:not(:first-child) {
+    margin-top: 20px;
+}
+.article-template__comments {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+@media screen and (min-width: 750px) and (max-width: 989px) {
+  .article-template__hero-small {
+    height: 22rem;
+  }
+
+  .article-template__hero-medium {
+    height: 44rem;
+  }
+
+  .article-template__hero-large {
+    height: 66rem;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .article-template__hero-small {
+    height: 27.5rem;
+  }
+
+  .article-template__hero-medium {
+    height: 55rem;
+  }
+
+  .article-template__hero-large {
+    height: 82.5rem;
+  }
+}
+.article-card-date-author {
+  display: flex;
+  align-items: center;
+}
+.article-card-date-author+h1 {
+  margin-top: 5px;
+}
+.article-card-date-author:not(:first-child) {
+  margin-top: 20px;
+}
+.article-template__title+.article-template__social-sharing {
+  margin-top: 20px;
+}
+.article-template__title {
+  margin: 0;
+}
+.article__comments + #comment_form {
+  margin-top: 20px;
+}
+.article--divider:not(:first-child:last-child) {
+  height: 0px;
+  border-top: 1px solid #cccccc90;
+}
+.article-template__link {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.article-template__link .icon-wrap {
+  display: flex;
+  width: 20px;
+}
+#comment_form:has(.center) .btn {
+  margin: 0 auto;
+}
+.article-template__comments .pagination-wrapper {
+  width: 100%;
+}
+.comment--form_fields > *:not(:last-child) {
+    margin-bottom: 10px;
+}
+@media screen and (max-width: 750px) {
+  .article-template__comment-fields > *:first-child {
+    margin-bottom: 10px;
+  }
+  .article-template__comments .pagination-wrapper {
+   margin: 0px;
+  }
+}
+@media screen and (min-width: 750px) {
+  .article-template__comment-fields {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 20px;
+  }
+  .article-template__comments .pagination-wrapper {
+    margin-top: 20px;
+  }
+  .article-template > *:not(:first-child) {
+    margin-top: 40px;
+  }
+  .article__comments + #comment_form {
+    margin-top: 40px;
+  }
+  .comment--form_fields > *:not(:last-child) {
+    margin-bottom: 20px;
+  }
+}
+

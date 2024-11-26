@@ -1,0 +1,327 @@
+{{ 'section-map.css' | asset_url | stylesheet_tag }}
+{% liquid
+    assign display_map = false 
+    assign onboarding = false
+    if blank and section.settings.image == blank
+        assign onboarding = true
+    endif
+    if section.settings.api_key != blank and section.settings.map_address
+        assign display_map = true
+    endif
+%}
+
+<style>
+  {% assign bannerImageRatio =  1 | divided_by: section.settings.image.aspect_ratio | times: 100 %}
+  {%- if section.settings.image_height == 'adapt' and bannerImageRatio != blank -%}
+    @media screen and (max-width: 749px) {
+      .map-section::before {
+        padding-bottom: {{ bannerImageRatio | append: '%' }};
+        content: '';
+        display: block;
+      }
+    }
+
+    @media screen and (min-width: 750px) {
+      .map-section::before {
+        padding-bottom: {{ bannerImageRatio | append: '%' }};
+        content: '';
+        display: block;
+      }
+    }
+  {%- endif -%}
+</style>
+{% unless section.settings.full_width %}
+<div class="page-width">
+{% endunless %}
+{%- if section.settings.title != blank or section.settings.subheading != blank -%}
+  <div class="header--intro {{ section.settings.heading_alignment }}">
+    <div class="header--head">
+      <legend class="subheading special--base bold">{{ section.settings.subheading }}</legend>
+      <h2 class="heading {{ section.settings.heading_size }}">{{ section.settings.title | escape }}</h2>
+    </div>
+  </div>
+{%- endif -%}
+<div
+  id="MapSection--{{ section.id }}"
+  class="
+    map-section banner__height-{{ section.settings.image_height }}
+    {% if display_map %}map-section--display-map{% endif %}
+    {% if onboarding == true %}map-section--onboarding{% endif %}
+  "
+  data-section-id="{{ section.id }}"
+  data-section-type="map"
+>
+  <div class="map-section__wrapper">
+    <div class="map-section__content-wrapper">
+      <div class="map-section__content color-{{ section.settings.color_scheme }}">
+        {% if section.settings.loaction_name != blank %}
+          <h3 class="{{ section.settings.location_heading_size }}">{{ section.settings.loaction_name | escape }}</h3>
+        {% endif %}
+        {% if section.settings.address != blank %}
+          <div class="rte-setting">{{ section.settings.address }}</div>
+          {% if section.settings.map_address != blank and section.settings.button_text != blank %}
+            <a
+              href="https://maps.google.com?daddr={{ section.settings.map_address | escape }}"
+              class="btn btn--primary btn--small map_section__directions-btn"
+              target="_blank"
+              rel="noopener"
+              aria-describedby="a11y-new-window-external-message"
+            >
+              {{ section.settings.button_text | escape }}
+              {% render 'theme-icons', icon: 'arrow-up-right' %}
+            </a>
+          {% endif %}
+        {% endif %}
+      </div>
+    </div>
+    <div class="map-section__image-wrapper">
+      {% if section.settings.image != blank %}
+        {%- liquid
+          assign image_height = section.settings.image.width | divided_by: section.settings.image.aspect_ratio
+          assign sizes = '100vw'
+        -%}
+        {{
+          section.settings.image
+          | image_url: width: 3840
+          | image_tag:
+            loading: 'lazy',
+            width: section.settings.image.width,
+            height: image_height,
+            class: 'map__image loading__animation',
+            sizes: sizes,
+            widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
+        }}
+      {% elsif onboarding == true %}
+        <div class="placeholder-background">
+          {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+        </div>
+      {% endif %}
+      {% if display_map %}
+        <div
+          class="map-section__container"
+          id="mapinit"
+          data-map-key="{{ section.settings.api_key }}"
+          data-map-address="{{ section.settings.map_address | escape }}"
+        ></div>
+        <div class="map-section__overlay" data-map-overlay></div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% unless section.settings.full_width %}
+</div>
+{% endunless %}
+{% if display_map %}
+  <script src="{{ 'section-map.js' | asset_url }}" async dafer></script>
+{% endif %}
+
+{% schema %}
+{
+  "name": "t:sections.map.name",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": [
+      "header",
+      "footer"
+    ]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.layout.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "t:sections.all.full_width.label",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.section_header.content"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "t:sections.all.subheading.label"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "t:sections.all.heading.label",
+      "default": "Map"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h3",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h4",
+          "label": "t:sections.all.heading_size.options__3.label"
+        },
+        {
+          "value": "h5",
+          "label": "t:sections.all.heading_size.options__4.label"
+        }
+      ],
+      "default": "h3",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.all.text_alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.all.text_alignment.options__2.label"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.all.text_alignment.options__3.label"
+        }
+      ],
+      "default": "center",
+      "label": "t:sections.all.heading_alignment.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.map.settings.header.content"
+    },
+    {
+      "id": "api_key",
+      "type": "text",
+      "label": "t:sections.map.settings.map_info.apikey.label",
+      "info": "t:sections.map.settings.map_info.apikey.info"
+    },
+    {
+      "type": "text",
+      "id": "loaction_name",
+      "label": "t:sections.map.settings.map_info.location.label",
+      "default": "Our Retail Store"
+    },
+    {
+      "type": "select",
+      "id": "location_heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h3",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h4",
+          "label": "t:sections.all.heading_size.options__3.label"
+        },
+        {
+          "value": "h5",
+          "label": "t:sections.all.heading_size.options__4.label"
+        }
+      ],
+      "default": "h4",
+      "label": "t:sections.map.settings.map_info.location.font_size"
+    },
+    {
+      "id": "address",
+      "type": "richtext",
+      "label": "t:sections.map.settings.map_info.address_hours.label",
+      "default": "<p>123 Fake St. Toronto, Canada</p><p>Mon - Fri, 10am - 9pm<br>Saturday, 11am - 9pm<br>Sunday, 11am - 5pm</p>"
+    },
+    {
+      "id": "map_address",
+      "type": "text",
+      "label": "t:sections.map.settings.map_info.map_address.label",
+      "info": "t:sections.map.settings.map_info.map_address.info",
+      "default": "301 Front St W, Toronto"
+    },
+    {
+      "id": "button_text",
+      "type": "text",
+      "label": "t:sections.map.settings.map_info.button.label",
+      "default": "Get directions"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "options": [
+        {
+          "value": "primary",
+          "label": "t:sections.all.color_scheme.primary.label"
+        },
+        {
+          "value": "secondary",
+          "label": "t:sections.all.color_scheme.secondary.label"
+        },
+        {
+          "value": "light",
+          "label": "t:sections.all.color_scheme.light.label"
+        },
+        {
+          "value": "dark",
+          "label": "t:sections.all.color_scheme.dark.label"
+        },
+        {
+          "value": "gray",
+          "label": "t:sections.all.color_scheme.gray.label"
+        }
+      ],
+      "default": "secondary",
+      "label": "t:sections.all.color_scheme.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.map.settings.header1.content"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.map.settings.image.label",
+      "info": "t:sections.map.settings.image.info"
+    },
+    {
+      "type": "select",
+      "id": "image_height",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.map.settings.image_ratio.options__1.label"
+        },
+        {
+          "value": "small",
+          "label": "t:sections.map.settings.image_ratio.options__2.label"
+        },
+        {
+          "value": "medium",
+          "label": "t:sections.map.settings.image_ratio.options__3.label"
+        },
+        {
+          "value": "large",
+          "label": "t:sections.map.settings.image_ratio.options__4.label"
+        }
+      ],
+      "default": "small",
+      "label": "t:sections.map.settings.image_ratio.label"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.map.presets.name"
+    }
+  ]
+}
+{% endschema %}

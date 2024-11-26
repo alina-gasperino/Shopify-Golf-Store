@@ -1,0 +1,110 @@
+{%- liquid
+  assign product_form_id = 'quick-add-' | append: section.id | append: product.id
+  assign current_variant = product.selected_or_first_available_variant
+-%}
+<div id="{{ section.id }}">
+  <div class="quickBuy-item__media">
+    <div class="quickBuy--product-link-image" tabindex="-1">
+      {%- if product.featured_image != blank -%}
+        <img
+          class="quickBuy--product-image loading__animation"
+          src="{{ product.featured_image | image_url: width: 300 }}"
+          alt="{{ product.featured_image.alt | escape }}"
+          loading="lazy"
+          width="150"
+          height="{{ 150 | divided_by: product.featured_image.aspect_ratio | ceil }}"
+        >
+      {% else %}
+         {{ 'product-1' | placeholder_svg_tag: 'quickBuy--product-image' }}
+      {% endif %}
+    </div>
+  </div>
+  <div class="quickBuy-item__details">
+    <a href="{{ product.url }}" class="product--title">
+        {{ product.title }}
+    </a>
+    <div class="price">
+      <span class="price-item price-item--sale price--red" price--sale>{% if current_variant.compare_at_price > current_variant.price %}{{ current_variant.price | money }}{% endif %}</span>
+      <span class="price-item price-item--regular {% if current_variant.compare_at_price > current_variant.price %}cut--price{% endif %}" price--regular>{% if current_variant.compare_at_price > current_variant.price %}{{ current_variant.compare_at_price | money }}{% else %}{{ current_variant.price | money }}{% endif %}</span>
+    </div>
+  </div>
+  <product-form>
+    {%- form 'product', product, data-productid: product.id, id: product_form_id,
+      class: 'form',
+      novalidate: 'novalidate',
+      data-type: 'add-to-cart-form'
+    -%}
+
+      <input
+        type="hidden"
+        name="id" data-productid="{{ product.id }}"
+        value="{{ product.selected_or_first_available_variant.id }}"
+        disabled
+      >
+      <div class="quickBuy--item-variants variant--selection-options">
+        {%- for option in product.options_with_values -%}
+          {% assign selected_variant = current_variant.title | split: ' / ' %}
+          <fieldset class="js product--form-select">
+            <legend class="option--label">{{ option.name }}</legend>
+            <div class="select">
+              <select class="option--select js-option-select">
+                {%- for value in option.values -%}
+                    {% liquid 
+                      assign selectedAttr = ''
+                      for title in selected_variant
+                        if title == value 
+                            assign selectedAttr = 'selected'
+                        endif
+                      endfor
+                    %}
+                    <option value="{{ value }}" {{ selectedAttr }}>{{ value }}</option>
+                {% endfor %}
+              </select>
+              {% render 'theme-icons', icon: 'chevron-down' %}
+            </div>
+          </fieldset>
+        {%- endfor -%}
+      </div>
+      <button
+        id="{{ product_form_id }}-submit"
+        type="submit"
+        name="add"
+        class="quick-add__submit btn button--full-width btn--primary"
+        aria-haspopup="dialog"
+        aria-labelledby="{{ product_form_id }}-submit title-{{ section.id }}-{{ product.id }}"
+        aria-live="polite"
+        data-sold-out-message="true"
+        {% if product.selected_or_first_available_variant.available == false %}
+          disabled
+        {% endif %}
+      >
+        <span class="spn--add">
+          {%- if product.selected_or_first_available_variant.available -%}
+            {{ 'products.product.add_to_cart' | t }}
+          {%- else -%}
+            {{ 'products.product.sold_out' | t }}
+          {%- endif -%}
+        </span>
+        <span class="sold-out-message hidden">
+          {{ 'products.product.sold_out' | t }}
+        </span>
+        {% render 'theme-icons', icon: 'arrow-up-right' %}
+        {% render 'theme-icons', icon: 'loader' %}
+      </button>
+    {%- endform -%}
+    <noscript id="product-data-json">
+      {{ product | json }}
+    </noscript>
+  </product-form>
+</div>
+{% schema %}
+{
+  "name": "Quick buy"
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

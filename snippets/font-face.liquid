@@ -1,0 +1,13 @@
+{%- liquid
+    assign body_font_bold = settings.body_font | font_modify: 'weight', 'bold'
+    assign body_font_italic = settings.body_font | font_modify: 'style', 'italic'
+    assign body_font_bold_italic = body_font_bold | font_modify: 'style', 'italic'
+%}
+{% style %}
+    {{ settings.body_font | font_face: font_display: 'swap' }}
+    {{ body_font_bold | font_face: font_display: 'swap' }}
+    {{ body_font_italic | font_face: font_display: 'swap' }}
+    {{ body_font_bold_italic | font_face: font_display: 'swap' }}
+    {{ settings.heading_font | font_face: font_display: 'swap' }}
+    {{ settings.special_font | font_face: font_display: 'swap' }}
+{% endstyle %}

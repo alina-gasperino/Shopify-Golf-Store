@@ -1,0 +1,112 @@
+<div class="announcement-bar color-{{ section.settings.color_scheme }}{% if section.settings.enable_scroll %} marquee3k{% endif %}{% unless section.settings.full_width %} page-width{% endunless %}{% unless section.settings.enable_scroll and settings.extra_space %} page-width-with-extra{% endunless %}" data-speed="{{ section.settings.scrolling_speed }}" data-pausable="t">
+  <div class="announcement-bar-inner column--{{ section.blocks.size }}">
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when 'announcement' -%}
+          <div class="announcement-bar--block" role="region" aria-label="{{ 'sections.header.announcement' | t }}" {{ block.shopify_attributes }}>
+            {%- if block.settings.text != blank -%}
+              {%- if block.settings.link != blank -%}
+                <a href="{{ block.settings.link }}" class="announcement-bar__link link link--text focus-inset animate-arrow">
+              {%- endif -%}
+                  <p class="announcement-bar__message">
+                   {{ block.settings.text | escape }}
+                  </p>
+              {%- if block.settings.link != blank -%}
+                </a>
+              {%- endif -%}
+            {%- endif -%}
+          </div>
+      {%- endcase -%}
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.announcement-bar.name",
+  "max_blocks": 3,
+  "class": "announcement-bar-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.layout.content",
+      "info": "t:sections.announcement-bar.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "t:sections.all.full_width.label",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "options": [
+        {
+          "value": "primary",
+          "label": "t:sections.all.color_scheme.primary.label"
+        },
+        {
+          "value": "secondary",
+          "label": "t:sections.all.color_scheme.secondary.label"
+        },
+        {
+          "value": "light",
+          "label": "t:sections.all.color_scheme.light.label"
+        },
+        {
+          "value": "dark",
+          "label": "t:sections.all.color_scheme.dark.label"
+        },
+        {
+          "value": "gray",
+          "label": "t:sections.all.color_scheme.gray.label"
+        }
+      ],
+      "default": "primary",
+      "label": "t:sections.all.color_scheme.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_scroll",
+      "label": "t:sections.announcement-bar.settings.scrolling.label",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "scrolling_speed",
+      "label": "t:sections.announcement-bar.settings.scrolling.speed",
+      "min": 1,
+      "max": 5,
+      "unit": "s",
+      "default": 2
+    }
+  ],
+  "blocks": [
+    {
+      "type": "announcement",
+      "name": "t:sections.announcement-bar.blocks.announcement.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "default": "⚡Use this section to make announcements",
+          "label": "t:sections.announcement-bar.blocks.announcement.settings.text.label"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "t:sections.announcement-bar.blocks.announcement.settings.link.label"
+        }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      {
+        "type": "announcement"
+      }
+    ]
+  }
+}
+{% endschema %}

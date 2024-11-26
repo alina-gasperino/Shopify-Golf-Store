@@ -1,0 +1,28 @@
+{% for block in section.blocks %}
+  {% case block.type %}
+    {% when 'size_chart' %}
+      {% if block.settings.size_chart_image != blank or block.settings.size_chart_page.content != blank %}
+        <div class="rt-theme-popup color-secondary popup-width-{{ block.settings.size_chart_width }} hide-popup" data-popup-type="size-chart">
+          <button class="theme-popup-close color-secondary">{% render 'theme-icons', icon: 'close' %}</button>
+          <div class="rt-size-cart-popup popup--inner" role="dialog" aria-modal="true">
+            {% if block.settings.size_chart_image != blank %}
+              <div class="size-chart-image">
+                <img
+                  class="size-chart-image loading__animation"
+                  src="{{ block.settings.size_chart_image | image_url: width: 650 }}"
+                  alt="{{ block.settings.size_chart_image.alt }}"
+                  width="325"
+                  height="{{ 325 | divided_by: block.settings.size_chart_image.aspect_ratio | ceil }}"
+                  loading="lazy"
+                >
+              </div>
+            {% else %}
+              <div class="size-chart-page-content rte">
+                {{ block.settings.size_chart_page.content }}
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+  {% endcase %}
+{% endfor %}

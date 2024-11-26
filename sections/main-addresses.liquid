@@ -1,0 +1,84 @@
+{{ 'customer.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'customer.js' | asset_url }}" defer></script>
+
+{%- paginate customer.addresses by 50 -%}
+  <div class="customer addresses page-width" data-customer-addresses>
+    <div class="customer-account__bar color-secondary">
+      <div class="customer-information">
+        <h1 class="h3">{{ 'customer.account.title' | t }}</h1>
+        <p class="customer__name">{{ 'customer.account.welcome_content' | t: customer_name: customer.name }}</p>
+      </div>
+      <div class="customer-information__btns">
+        <a class="btn btn--outline" href="{{ routes.account_url }}">
+          {{ 'customer.account.account_overview' | t }}{% render 'theme-icons', icon: 'arrow-up-right' %}
+        </a>
+        <a class="btn btn--primary" href="{{ routes.account_addresses_url }}">
+          {{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }}){% render 'theme-icons', icon: 'arrow-up-right' %}
+        </a>
+        <a href="{{ routes.account_logout_url }}" class="link link--underline bold">
+          {{ 'customer.log_out' | t }}
+        </a>
+      </div>
+    </div>
+    <div class="saved--addresses">
+        <ul role="list">
+          {% assign counter = 0 %}
+          {%- for address in customer.addresses -%}
+            <li data-address class="color-secondary customer--box" {%- if address == customer.default_address -%}default_address{% endif %}>
+              {%- if address == customer.default_address -%}
+                <h4>{{ 'customer.addresses.default' | t }}</h4>
+              {% else %}
+                {% assign counter = counter | plus: 1 %}
+                <h4>{{ 'customer.addresses.address' | t }} {{ counter }}</h4>
+              {%- endif -%}
+              {{ address | format_address }}
+              <div class="addresses-button">
+                <button
+                  type="button"
+                  class="link--underline popup--button"
+                  data-modal-type="customer-addresses"
+                  id="EditFormButton_{{ address.id }}"
+                  aria-label="{{ 'customer.addresses.edit_address' | t }} {{ forloop.index }}"
+                  aria-controls="EditAddress_{{ address.id }}"
+                  aria-expanded="false"
+                  data-address-id="{{ address.id }}"
+                >
+                  {{ 'customer.addresses.edit' | t }}
+                </button>
+                <button
+                  type="button"
+                  class="link--underline"
+                  aria-label="{{ 'customer.addresses.delete' | t }} {{ forloop.index }}"
+                  data-target="{{ address.url }}"
+                  data-confirm-message="{{ 'customer.addresses.delete_confirm' | t }}"
+                >
+                  {{ 'customer.addresses.delete' | t }}
+                </button>
+              </div>
+            </li>
+          {%- endfor -%}
+        </ul>
+    </div>
+    <button
+        class="btn btn--primary add--new-addresses popup--button"
+        type="button"
+        aria-expanded="false"
+        aria-controls="AddAddress"
+        data-modal-type="customer-addresses"
+      >
+        {{ 'customer.addresses.add_new' | t }}{% render 'theme-icons', icon: 'arrow-up-right' %}
+    </button>
+  </div>
+{%- endpaginate -%}
+{% render 'customer-addresses-popup' %}
+<script>
+  window.onload = () => {
+    typeof CustomerAddresses !== 'undefined' && new CustomerAddresses();
+  };
+</script>
+
+{% schema %}
+{
+  "name": "t:sections.main-addresses.name"
+}
+{% endschema %}

@@ -1,0 +1,234 @@
+{% style %}
+    :root {
+
+        /*==============  Body font  ==============*/
+        --body-font-family: {{ settings.body_font.family }}, {{ settings.body_font.fallback_families }};
+        --body-font-style: {{ settings.body_font.style }};
+        --body-font-weight: {{ settings.body_font.weight }};
+        --body-font-weight-bold: {{ settings.body_font.weight | plus: 300 | at_most: 1000 }};
+        --body-font-size: {{ settings.body_font_size | append: 'px' }};
+        --body-font-small: {{ settings.body_font_size | minus: 2 | append: 'px' }};
+        --body-font-size-mobile: {{ settings.body_font_size_mobile | append: 'px' }};
+        
+        /*==============  Heading font  ==============*/
+        --heading-font-family: {{ settings.heading_font.family }}, {{ settings.heading_font.fallback_families }};
+        --heading-font-style: {{ settings.heading_font.style }};
+        --heading-font-weight: {{ settings.heading_font.weight }};
+        --heading-font-case: {{ settings.heading_font_case }};
+        --heading-font-size-h1: {{ settings.heading_size_h1 | append: 'px' }};
+        --heading-font-size-h2: {{ settings.heading_size_h2 | append: 'px' }};
+        --heading-font-size-h3: {{ settings.heading_size_h3 | append: 'px' }};
+        --heading-font-size-h4: {{ settings.heading_size_h4 | append: 'px' }};
+        --heading-font-size-h5: {{ settings.heading_size_h5 | append: 'px' }};
+        --heading-font-size-mobile-h1: {{ settings.mobile_heading_size_h1 | append: 'px' }};
+        --heading-font-size-mobile-h2: {{ settings.mobile_heading_size_h2 | append: 'px' }};
+        --heading-font-size-mobile-h3: {{ settings.mobile_heading_size_h3 | append: 'px' }};
+        --heading-font-size-mobile-h4: {{ settings.mobile_heading_size_h4 | append: 'px' }};
+        --heading-font-size-mobile-h5: {{ settings.mobile_heading_size_h5 | append: 'px' }};
+
+        /*==============  Special font  ==============*/
+        --special-font-family: {{ settings.special_font.family }}, {{ settings.special_font.fallback_families }};
+        --special-font-style: {{ settings.special_font.style }};
+        --special-font-weight: {{ settings.special_font.weight }};
+        --special-font-case: {{ settings.special_font_case }};
+        --special-font-size-small: {{ settings.special_font_size | minus: 4 | append: 'px' }};
+        --special-font-size-medium: {{ settings.special_font_size | minus: 2 | append: 'px' }};
+        --special-font-size: {{ settings.special_font_size | append: 'px' }};
+
+        /*==============  Page color  ==============*/
+        --primary-background: {{ settings.primary_background.red }},{{ settings.primary_background.green }},{{ settings.primary_background.blue }};
+        --primary-text-color: {{ settings.primary_color.red }},{{ settings.primary_color.green }},{{ settings.primary_color.blue }};
+        --secondary-background: {{ settings.secondary_background.red }},{{ settings.secondary_background.green }},{{ settings.secondary_background.blue }};
+        --secondary-text-color: {{ settings.secondary_color.red }},{{ settings.secondary_color.green }},{{ settings.secondary_color.blue }};
+        --accent-background: {{ settings.background_accent.red }},{{ settings.background_accent.green }},{{ settings.background_accent.blue }};
+        --accent-text-color: {{ settings.color_accent.red }},{{ settings.color_accent.green }},{{ settings.color_accent.blue }};
+    
+        /*==============  Color scheme  ==============*/
+        --dark-background: {{ settings.background_dark.red }},{{ settings.background_dark.green }},{{ settings.background_dark.blue }};
+        --dark-text-color: {{ settings.color_dark.red }},{{ settings.color_dark.green }},{{ settings.color_dark.blue }};
+        --light-background: {{ settings.background_light.red }},{{ settings.background_light.green }},{{ settings.background_light.blue }};
+        --light-text-color: {{ settings.color_light.red }},{{ settings.color_light.green }},{{ settings.color_light.blue }};
+        --gray-background: {{ settings.background_gray.red }},{{ settings.background_gray.green }},{{ settings.background_gray.blue }};
+        --gray-text-color: {{ settings.color_gray.red }},{{ settings.color_gray.green }},{{ settings.color_gray.blue }};
+
+        /*==============  Color buttons  ==============*/
+
+        --color-btn-primary-background:{{ settings.primary_btn_background }};
+        --color-btn-primary-text:{{ settings.primary_btn_color }};
+        --color-btn-secondary-background:{{ settings.secondary_btn_background }};
+        --color-btn-secondary-text:{{ settings.secondary_btn_color }};
+
+        /*==============  Color others  ==============*/
+        --color-review-star:{{ settings.star_color }};
+        --color-success-message-background:{{ settings.success_message_background }};
+        --color-success-message-text:{{ settings.success_message_color }};
+        --color-error-message-background:{{ settings.error_message_background }};
+        --color-error-message-text:{{ settings.error_message_color }};
+        
+        --color-base-text: {{ settings.primary_color.red }}, {{ settings.primary_color.green }}, {{ settings.primary_color.blue }};
+        --color-shadow: {{ settings.primary_color.red }}, {{ settings.primary_color.green }}, {{ settings.primary_color.blue }};
+        
+        --color-base-background-1: {{ settings.primary_background.red }}, {{ settings.primary_background.green }}, {{ settings.primary_background.blue }};
+        --color-base-background-2: {{ settings.background_gray.red }}, {{ settings.background_gray.green }}, {{ settings.background_gray.blue }};
+        --color-base-solid-button-labels: {{ settings.primary_btn_color.red }}, {{ settings.primary_btn_color.green }}, {{ settings.primary_btn_color.blue }};
+        --color-base-outline-button-labels: {{ settings.secondary_btn_color.red }}, {{ settings.secondary_btn_color.green }}, {{ settings.secondary_btn_color.blue }};
+        --color-base-accent-1: {{ settings.background_accent.red }}, {{ settings.background_accent.green }}, {{ settings.background_accent.blue }};
+        --color-base-accent-2: {{ settings.accent_color.red }}, {{ settings.accent_color.green }}, {{ settings.accent_color.blue }};
+        --payment-terms-background-color: {{ settings.primary_background }};
+
+        /*==============  Theme border  ==============*/
+        {% if settings.solid_borders == true %}
+          --solid-border: 1px solid;
+        {% else %}
+          --solid-border: none;
+        {% endif %}
+        
+        /*==============  Theme spacing  ==============*/
+        --page-width: {{ settings.page_width | append: 'px' }};
+        --page-width-margin: {% if settings.page_width == '1600' %}2{% else %}0{% endif %}rem;
+
+        --spacing-sections-desktop: 80px;
+        --spacing-sections-mobile: 40px;
+
+        --grid-desktop-vertical-spacing: 20px;
+        --grid-desktop-horizontal-spacing: 20px;
+        --grid-mobile-vertical-spacing: 10px;
+        --grid-mobile-horizontal-spacing: 10px;
+        {% if settings.extra_space %}
+          --body-space-sm: 0px 10px 60px;
+          --body-space-md: 0px 20px 90px;
+          --body-space-lg: 0px 20px 20px;
+        {% else %}
+          --body-space-sm: 0px 0px 60px;
+          --body-space-md: 0px 0px 90px;
+          --body-space-lg: 0px;
+        {% endif %}
+        --cursor-close-svg-url: url({{ 'theme-model-close.svg' | asset_url }});
+
+        /*==============  Theme radius controling  ==============*/
+         {% if settings.theme_radius == 'igloo' %}
+          --border-radius-x: 5px 5px 2px 2px;
+          --border-radius-xs: 10px 10px 2px 2px;
+          --border-radius-s: 10px 10px 3px 3px;
+          --border-radius-sx: 10px 10px 5px 5px;
+          --border-radius-m: 15px 15px 5px 5px;
+          --border-radius-mx: 14px 14px 4px 4px;
+          --border-radius-ll: 5px 5px 20px 20px;
+          --border-radius-l: 20px 20px 5px 5px;
+          --border-radius-lx: 25px 25px 5px 5px;
+          --border-radius-xl: 25px 25px 10px 10px;
+          --border-radius-lg: 30px 30px 10px 10px;
+          --border-radius-xlg: 40px 40px 10px 10px;
+          --border-radius-th-first: 20px 0px 0px 5px;
+          --border-radius-th-last: 0px 20px 5px 0px;
+          --border-radius-share-copy: 2px 25px 5px 0px;
+          --border-radius-accordion: 25px 25px 0px 0px;
+          --border-radius-accordion-rte: 0px 0px 5px 5px;
+          --border-radius-close: 40px 40px 10px 10px;
+        {% elsif settings.theme_radius == 'round' %}
+          --border-radius-x: 2px;
+          --border-radius-xs: 2px;
+          --border-radius-s: 3px;
+          --border-radius-sx: 5px;
+          --border-radius-m: 5px;
+          --border-radius-mx: 4px;
+          --border-radius-ll: 5px;
+          --border-radius-l: 5px;
+          --border-radius-lx: 5px;
+          --border-radius-xl: 10px;
+          --border-radius-lg: 10px;
+          --border-radius-xlg: 10px;
+          --border-radius-th-first: 5px 0px 0px 5px;
+          --border-radius-th-last: 0px 5px 5px 0px;
+          --border-radius-share-copy: 5px;
+          --border-radius-accordion: 5px 5px 0px 0px;
+          --border-radius-accordion-rte: 0px 0px 5px 5px;
+          --border-radius-close: 10px;
+        {% elsif settings.theme_radius == 'wave' %}
+          --border-radius-x: 5px 2px 5px 2px;
+          --border-radius-xs: 10px 2px 10px 2px;
+          --border-radius-s: 10px 3px 10px 3px;
+          --border-radius-sx: 10px 5px 10px 5px;
+          --border-radius-m: 15px 5px 15px 5px;
+          --border-radius-mx: 14px 4px 14px 4px;
+          --border-radius-ll: 5px 20px 5px 20px;
+          --border-radius-l: 20px 5px 20px 5px;
+          --border-radius-lx: 25px 5px 25px 5px;
+          --border-radius-xl: 25px 10px 25px 10px;
+          --border-radius-lg: 30px 10px 30px 10px;
+          --border-radius-xlg: 40px 10px 40px 10px;
+          --border-radius-th-first: 20px 0px 0px 5px;
+          --border-radius-th-last: 0px 5px 20px 0px;
+          --border-radius-share-copy: 0px 5px 25px 0px;
+          --border-radius-accordion: 25px 5px 0px 0px;
+          --border-radius-accordion-rte: 0px 0px 25px 5px;
+          --border-radius-close: 15px 5px 15px 5px;
+        {% else %}
+          --border-radius-x: 0px;
+          --border-radius-xs: 0px;
+          --border-radius-s: 0px;
+          --border-radius-sx: 0px;
+          --border-radius-m: 0px;
+          --border-radius-mx: 0px;
+          --border-radius-ll: 0px;
+          --border-radius-l: 0px;
+          --border-radius-lx: 0px;
+          --border-radius-xl: 0px;
+          --border-radius-lg: 0px;
+          --border-radius-xlg: 0px;
+          --border-radius-th-first: 0px;
+          --border-radius-th-last: 0px;
+          --border-radius-share-copy: 0px;
+          --border-radius-accordion: 0px;
+          --border-radius-accordion-rte: 0px;
+          --border-radius-close: 0px;
+        {% endif %}
+    }
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: inherit;
+    }
+    html {
+        box-sizing: border-box;
+    }
+    body,html,p,ul,li,ol,span {
+        font-size: var(--body-font-size-mobile);
+    }
+    body {
+        max-width: 100%;
+        display: grid;
+        grid-template-rows: auto auto 1fr auto;
+        grid-template-columns: 100%;
+        min-height: 100%;
+        margin: 0;
+        font-family: var(--body-font-family);
+        font-style: var(--body-font-style);
+        font-weight: var(--body-font-weight);
+        background-color: rgb(var(--primary-background));
+        color: rgb(var(--primary-text-color));
+        padding: var(--body-space-sm);
+    }
+    .page-width-with-extra {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    @media screen and (min-width: 750px) {
+      body,html,p,ul,li,ol,span {
+          font-size: var(--body-font-size);
+      }
+      body {
+        padding: var(--body-space-md);
+      }
+      .page-width-with-extra {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    }
+    @media screen and (min-width: 990px) {
+      body {
+        padding: var(--body-space-lg);
+      }
+    }
+{% endstyle %}

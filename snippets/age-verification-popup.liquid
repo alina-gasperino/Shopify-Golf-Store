@@ -1,0 +1,36 @@
+{{ 'age-verification-popup.css' | asset_url | stylesheet_tag }}
+<div
+  class="rt-theme-popup color-{{ settings.age_popup_color_scheme }} {% unless settings.enable_age_verification_test_mode %}hide-popup{% endunless %}"
+  data-redirect="{% if settings.age_verification_redirect_link %}{{ settings.age_verification_redirect_link }}{% else %}false{% endif %}"
+  data-show-popup-again="{{ settings.age_popup_show_again }}"
+  {% if request.design_mode and settings.enable_age_verification_test_mode %}
+    data-popup-type="age-verification"
+  {% else %}
+    {% unless request.design_mode %}
+      data-popup-type="age-verification"
+    {% endunless %}
+  {% endif %}
+>
+  <div class="popup--inner" role="dialog" aria-modal="true">
+    <div class="age-verification-popup__content">
+      <div class="popup--content text-center">
+        {% if settings.age_verification_popup_heading != blank or settings.welcome_popup_description != blank %}
+          <div class="popup--header">
+            <h3>{{ settings.age_verification_popup_heading }}</h3>
+            <p>{{ settings.age_verification_popup_description }}</p>
+          </div>
+          <div class="popup--buttons">
+            <a href="#" class="btn btn--primary btn--age-verified">
+              {{- 'general.buttons.yes' | t }}
+              {% render 'theme-icons', icon: 'arrow-up-right' -%}
+            </a>
+            <a href="#" class="btn btn--page-reload">
+              {{- 'general.buttons.exit' | t }}
+              {% render 'theme-icons', icon: 'arrow-up-right' -%}
+            </a>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>

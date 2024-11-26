@@ -1,0 +1,195 @@
+{{ 'image-comparison.css' | asset_url | stylesheet_tag }}
+<div class="section-image__comparison {% unless section.settings.full_width %}page-width{% endunless %}" id="image-comparison-{{ section.id }}" style="--before-after-initial-drag-position:50%;">
+  {%- if section.settings.title != blank or section.settings.subheading != blank -%}
+    <div class="header--intro {{ section.settings.heading_alignment }}">
+      <div class="header--head">
+        <legend class="subheading special--base bold">{{ section.settings.subheading }}</legend>
+        <h2 class="heading {{ section.settings.heading_size }}">{{ section.settings.title | escape }}</h2>
+      </div>
+    </div>
+  {%- endif -%}
+  <div class="before-after__images">
+    <div class="before__image primary__image-{{ section.settings.image_height }}">
+      {%- if section.settings.primary_image != blank -%}
+        <div class="banner__media-image{% if section.settings.image_height != 'adapt' %} media__not-adapt{% endif %}">
+          {%- liquid
+            assign image_height = section.settings.primary_image.width | divided_by: section.settings.primary_image.aspect_ratio
+            assign sizes = '100vw'
+          -%}
+          {{
+            section.settings.primary_image
+            | image_url: width: 3840
+            | image_tag:
+              loading: 'lazy',
+              width: section.settings.primary_image.width,
+              height: image_height,
+              class: 'comparison__image loading__animation',
+              sizes: sizes,
+              widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
+          }}
+        </div>
+      {% else %}
+        <div class="banner__media-image media">
+          {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+        </div>
+      {% endif %}
+    </div>
+    <div class="after__image{% if section.settings.secondary_image == blank and section.settings.primary_image == blank %} placeholder__image{% endif %} after__image-{{ section.settings.image_height }}" data-section-id="image-comparison-{{ section.id }}">
+      {% if section.settings.secondary_image == blank -%}
+        {{- 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' -}}
+      {%- else %}
+        {%- liquid
+            assign image_height = section.settings.secondary_image.width | divided_by: section.settings.primary_image.aspect_ratio
+            assign sizes = '100vw'
+          -%}
+          {{
+            section.settings.secondary_image
+            | image_url: width: 3840
+            | image_tag:
+              loading: 'lazy',
+              width: section.settings.secondary_image.width,
+              height: image_height,
+              class: 'after__overlay-image loading__animation',
+              sizes: sizes,
+              widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
+          }}
+      {% endif %}
+    </div>
+    <div class="image-diversion__cursor-wrapper">
+      <image-diversion class="image__diversion">
+        <div class="diversion-resize__svg">
+          {% render 'theme-icons', icon: 'chevron-left' -%}
+          {%- render 'theme-icons', icon: 'chevron-right' %}
+        </div>
+      </image-diversion>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.image-comparison.name",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": [
+      "header",
+      "footer"
+    ]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.layout.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "t:sections.all.full_width.label",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.section_header.content"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "t:sections.all.subheading.label"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "t:sections.all.heading.label",
+      "default": "Image comparison"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h3",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h4",
+          "label": "t:sections.all.heading_size.options__3.label"
+        },
+        {
+          "value": "h5",
+          "label": "t:sections.all.heading_size.options__4.label"
+        }
+      ],
+      "default": "h3",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.all.text_alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.all.text_alignment.options__2.label"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.all.text_alignment.options__3.label"
+        }
+      ],
+      "default": "center",
+      "label": "t:sections.all.heading_alignment.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.image-comparison.settings.header.content"
+    },
+    {
+      "type": "image_picker",
+      "id": "primary_image",
+      "label": "t:sections.image-comparison.settings.images.primary.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "secondary_image",
+      "label": "t:sections.image-comparison.settings.images.secondary.label"
+    },
+    {
+      "type": "select",
+      "id": "image_height",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.image-comparison.settings.image_height.options__1.label"
+        },
+        {
+          "value": "small",
+          "label": "t:sections.image-comparison.settings.image_height.options__2.label"
+        },
+        {
+          "value": "medium",
+          "label": "t:sections.image-comparison.settings.image_height.options__3.label"
+        },
+        {
+          "value": "large",
+          "label": "t:sections.image-comparison.settings.image_height.options__4.label"
+        }
+      ],
+      "default": "adapt",
+      "label": "t:sections.image-comparison.settings.image_height.label"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.image-comparison.presets.name"
+    }
+  ]
+}
+{% endschema %}

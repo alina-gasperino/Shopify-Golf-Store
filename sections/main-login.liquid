@@ -1,0 +1,133 @@
+{{ 'customer.css' | asset_url | stylesheet_tag }}
+
+<div class="customer customer--box login color-secondary">
+  <div class="customer-reset-password" id="recover">
+     <div class="header--intro center">
+      <div class="header--head">
+        <h1 class="h3">
+          {{ 'customer.recover_password.title' | t }}
+        </h1>
+      </div>
+      <div class="header--desc">
+        <p>{{ 'customer.recover_password.subtext' | t }}</p>
+      </div>
+    </div>
+    <div>
+      {%- form 'recover_customer_password' -%}
+        {%- if form.errors -%}
+          <legend class="theme--error-message special--medium message__field">{% render 'theme-icons', icon: 'warning' %}{{ form.errors.messages.form }}</legend>
+        {%- endif -%}
+        {% assign recover_success = form.posted_successfully? %}
+        <label for="RecoverEmail" class="hide">{{ 'customer.login_page.email' | t }}</label>
+        <div class="field">
+          <input
+            type="email"
+            value=""
+            name="email"
+            id="RecoverEmail"
+            autocorrect="off"
+            autocapitalize="off"
+            autocomplete="email"
+            required
+            {% if form.errors %}
+              aria-invalid="true"
+              aria-describedby="RecoverEmail-email-error"
+              autofocus
+            {% endif %}
+            placeholder="{{ 'customer.login_page.email' | t }}"
+          >
+        </div>
+        <button class="btn btn--primary">
+          {{ 'customer.login_page.submit' | t }}  {% render 'theme-icons', icon: 'arrow-up-right' %}
+        </button>
+        <a href="#login" class="link--underline">
+          {{ 'customer.login_page.cancel' | t }}
+        </a>
+      {%- endform -%}
+    </div>
+  </div>             
+
+  <div class="customer--login-form" id="login">  
+    <div class="header--intro center">
+      <div class="header--head">
+        <h1 class="h3">
+          {{ 'customer.login_page.title' | t }}
+        </h1>
+      </div>
+    </div>
+    <div>
+      {%- if recover_success == true -%}
+        <legend class="theme--success-message special--medium">{% render 'theme-icons', icon: 'check' %}{{ 'customer.recover_password.success' | t }}</legend>
+      {%- endif -%}
+      {%- form 'customer_login', novalidate: 'novalidate' -%}
+        {%- if form.errors -%}
+          <legend class="theme--error-message special--medium">{% render 'theme-icons', icon: 'warning' %}{{ form.errors.messages.form }}</legend>
+        {%- endif -%}
+  
+        <div class="field">
+          <label for="CustomerEmail" class="hide">{{ 'customer.login_page.email' | t }}</label>
+          <input
+            type="email"
+            name="customer[email]"
+            id="CustomerEmail"
+            autocomplete="email"
+            autocorrect="off"
+            autocapitalize="off"
+            required
+            {% if form.errors contains 'form' %}
+              aria-invalid="true"
+            {% endif %}
+            placeholder="{{ 'customer.login_page.email' | t }}"
+          >
+        </div>
+  
+        {%- if form.password_needed -%}
+          <div class="field">
+            <label for="CustomerPassword" class="hide">
+              {{ 'customer.login_page.password' | t }}
+            </label>
+            <input
+              type="password"
+              value=""
+              name="customer[password]"
+              id="CustomerPassword"
+              autocomplete="current-password"
+              required
+              {% if form.errors contains 'form' %}
+                aria-invalid="true"
+              {% endif %}
+              placeholder="{{ 'customer.login_page.password' | t }}"
+            >
+          </div>
+        {%- endif -%}
+  
+        <button class="btn btn--primary">
+          {{ 'customer.login_page.sign_in' | t }} {% render 'theme-icons', icon: 'arrow-up-right' %}
+        </button>
+        <a href="#recover" class="center recover--password" recover--password>
+          {{ 'customer.login_page.forgot_password' | t }}
+        </a>
+        <p class="customer-redirect__link">{{ 'customer.login_page.register_html' | t: link: routes.account_register_url }}</p>
+      {%- endform -%}
+    </div>
+  </div>
+  {%- if shop.checkout.guest_login -%}
+    <div>
+      <br>
+      <h2 class="h3">{{ 'customer.login_page.guest_title' | t }}</h2>
+
+      {%- form 'guest_login' -%}
+        <br>
+        <button class="btn btn--primary">
+          {{ 'customer.login_page.guest_continue' | t }} {% render 'theme-icons', icon: 'arrow-up-right' %}
+        </button>
+      {%- endform -%}
+    </div>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.main-login.name"
+}
+{% endschema %}

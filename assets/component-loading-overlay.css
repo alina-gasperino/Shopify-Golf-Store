@@ -1,0 +1,96 @@
+.loading-overlay {
+  position: absolute;
+  z-index: 1;
+  text-align: center;
+  width: 1.8rem;
+}
+
+@media screen and (max-width: 749px) {
+  .loading-overlay {
+    top: 0;
+    right: 0;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .loading-overlay {
+    left: 0;
+  }
+}
+
+.loading-overlay__spinner {
+  width: 20px;
+  display: inline-block;
+}
+
+.spinner {
+  width: 20px;
+}
+
+.btn svg.spinner {
+    position: absolute;
+    display: none;
+    margin: 0px;
+}
+.btn svg.check {
+  display: none;
+  position: absolute;
+  margin: 0;
+}
+.btn.btn--success {
+  background: var(--color-success-message-background);
+  color: var(--color-success-message-text);
+  border-color: var(--color-success-message-background);
+}
+.btn--loading>*,
+.btn--success>* {
+  visibility: hidden;
+}
+.btn.btn--success svg.check {
+  display: block;
+  visibility: visible;
+}
+.btn.btn--loading svg.spinner {
+  display: block;
+  visibility: visible;
+}
+.btn.btn--loading span {
+  visibility: hidden;
+}
+.path {
+  stroke-dasharray: 280;
+  stroke-dashoffset: 0;
+  transform-origin: center;
+  stroke: currentcolor;
+  animation: dash 1.4s ease-in-out infinite;
+}
+
+@media screen and (forced-colors: active) {
+  .path{
+    stroke: CanvasText;
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 280;
+  }
+  50% {
+    stroke-dashoffset: 75;
+    transform: rotate(135deg);
+  }
+  100% {
+    stroke-dashoffset: 280;
+    transform: rotate(450deg);
+  }
+}
+
+.loading-overlay:not(.hidden) + .cart-item__price-wrapper,
+.loading-overlay:not(.hidden) ~ cart-remove-button {
+  opacity: 50%;
+}
+
+.loading-overlay:not(.hidden) ~ cart-remove-button {
+  pointer-events: none;
+  cursor: default;
+}
