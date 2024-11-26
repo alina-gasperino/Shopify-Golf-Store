@@ -2107,7 +2107,7 @@ details[open] > .share-button__fallback {
 }
 
 /* main spacing */
-#MainContent:not(.template__password,.template__index) {
+#MainContent:not(.template__password,.template__index, .template__page) {
   margin: var(--spacing-sections-desktop) 0;
 }
 #MainContent.template__index {
@@ -2121,7 +2121,7 @@ details[open] > .share-button__fallback {
   margin-top: 0px;
 }
 @media screen and (max-width: 749px) {
-  #MainContent:not(.template__password,.template__index) {
+  #MainContent:not(.template__password,.template__index, .template__page) {
     margin: var(--spacing-sections-mobile) 0;
   }
   #MainContent .shopify-section:not(:last-child,.section-divider) {
