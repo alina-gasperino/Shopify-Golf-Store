@@ -15,10 +15,10 @@
         "banner_qHRB4H": {
           "type": "banner",
           "settings": {
-            "image": "shopify:\/\/shop_images\/IMG_7001.png",
-            "image_overlay_opacity": 20,
+            "image": "shopify:\/\/shop_images\/Putt_Dragon_Only_Logo_Color.png",
+            "image_overlay_opacity": 0,
             "subheading": "",
-            "heading": "Setup & Use",
+            "heading": "",
             "heading_size": "h2",
             "description": "",
             "primary_button_label": "",
@@ -32,7 +32,7 @@
             "show_text_box": false,
             "background_opacity": 100,
             "color_scheme": "secondary",
-            "content_color": "#28282A",
+            "content_color": "#28282a",
             "mobile_content_alignment": "center",
             "show_text_below": true
           }
@@ -43,75 +43,114 @@
       ],
       "settings": {
         "full_width": true,
-        "image_height": "small"
+        "image_height": "adapt"
       }
     },
-    "column_setup_trY9Mw": {
-      "type": "column-setup",
+    "column_grid_xKVHgy": {
+      "type": "column-grid",
       "blocks": {
-        "column_W4eQ84": {
+        "column_byLQPz": {
           "type": "column",
           "settings": {
             "image": "shopify:\/\/shop_images\/GOLD_TRAINING_AID_v4-05.png",
-            "title": "Put Putt Dragon On",
-            "heading_size": "h2",
-            "text": "<p>Place the shoulder strap around your right shoulder so the bar touches your back and its arms fit under your arms.<\/p>",
+            "title": "Attach the Arms",
+            "heading_size": "h4",
+            "text": "<p>Pull out the Arm Pins and slide each end into the back bar.<\/p>",
             "link_label": "",
             "link": ""
           }
         },
-        "column_qHaAmc": {
+        "column_3kCQ8W": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/GOLD_TRAINING_AID_v4-08.png",
-            "title": "Stand In a Doorway",
-            "heading_size": "h2",
-            "text": "<p>Find a doorway that is wide enough to fit Putt Dragon and feel the difference<\/p>",
+            "image": "shopify:\/\/shop_images\/GOLD_TRAINING_AID_v4-05.png",
+            "title": "Attach the Arms",
+            "heading_size": "h4",
+            "text": "<p>Pull out the Arm Pins and slide each end into the back bar.<\/p>",
             "link_label": "",
             "link": ""
           }
         },
-        "column_Eiqz7i": {
+        "column_FnUPhn": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/GOLD_TRAINING_AID_v4-06.png",
-            "title": "Start Putting",
-            "heading_size": "h2",
-            "text": "<p>Putt Draon will make you experience the perfect putting stroke.<\/p>",
+            "image": "shopify:\/\/shop_images\/GOLD_TRAINING_AID_v4-05.png",
+            "title": "Attach the Arms",
+            "heading_size": "h4",
+            "text": "<p>Pull out the Arm Pins and slide each end into the back bar.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_KLBCrk": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/GOLD_TRAINING_AID_v4-05.png",
+            "title": "Attach the Arms",
+            "heading_size": "h4",
+            "text": "<p>Pull out the Arm Pins and slide each end into the back bar.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_w8aaza": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/GOLD_TRAINING_AID_v4-05.png",
+            "title": "Attach the Arms",
+            "heading_size": "h4",
+            "text": "<p>Pull out the Arm Pins and slide each end into the back bar.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_46j9Gc": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/GOLD_TRAINING_AID_v4-05.png",
+            "title": "Attach the Arms",
+            "heading_size": "h4",
+            "text": "<p>Pull out the Arm Pins and slide each end into the back bar.<\/p>",
             "link_label": "",
             "link": ""
           }
         }
       },
       "block_order": [
-        "column_W4eQ84",
-        "column_qHaAmc",
-        "column_Eiqz7i"
+        "column_byLQPz",
+        "column_3kCQ8W",
+        "column_FnUPhn",
+        "column_KLBCrk",
+        "column_w8aaza",
+        "column_46j9Gc"
+      ],
+      "custom_css": [
+        ".column-grid {padding: 50px 0;}"
       ],
       "settings": {
-        "full_width": false,
+        "full_width": true,
         "columns_desktop": 3,
-        "color_scheme": "primary",
+        "color_scheme": "secondary",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
         "enable_mobile_autorotate": false,
         "change_mobile_slides_speed": 5,
         "subheading": "",
-        "title": "",
-        "heading_size": "h3",
+        "title": "PUTT LIKE THE PROS",
+        "heading_size": "h2",
         "heading_alignment": "center",
-        "column_with_background": true,
-        "color_scheme_secondary": "gray",
+        "column_with_background": false,
+        "color_scheme_secondary": "secondary",
         "show_image": true,
         "image_width": "full",
         "image_ratio": "adapt",
-        "column_alignment": "left"
+        "column_alignment": "center"
       }
     }
   },
   "order": [
     "main",
     "image_banner_gX996U",
-    "column_setup_trY9Mw"
+    "column_grid_xKVHgy"
   ]
 }

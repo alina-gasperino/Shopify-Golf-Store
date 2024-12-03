@@ -35,7 +35,7 @@
       "type": "header",
       "settings": {
         "full_width": true,
-        "color_scheme": "secondary",
+        "color_scheme": "primary",
         "sticky_header": false,
         "transparent_header": false,
         "logo": "shopify:\/\/shop_images\/Islands_Golf_Logo_Color.png",
