@@ -4,12 +4,23 @@
         width: 100%;
     }
     .header__inline-menu, .header__icons {
-        width: 33%;
+        width: 40%;
     }
     .header__heading {
-        width: 34%;
+        width: 20%;
     }
     .header__icons {
         justify-content: end;
     }
+}
+.grid--3-col-desktop .grid__item {
+    border: solid 3px #fff;
+    border-radius: 20px;
+}
+.column-grid-card__info {
+    margin-top: 0;
+    background: #192750;
+    color: #fff;
+    padding: 20px;
+    border-radius: 0 0 20px 20px;
 }

@@ -16,9 +16,6 @@
   .column-grid .title-wrapper-with-link {
     margin-bottom: 3rem;
   }
-  .column-grid-card__image-wrapper+* {
-    margin-top: 15px;
-  }
 }
 
 .column-without__background .column-grid-card__image-wrapper .media {
@@ -43,9 +40,6 @@
 @media screen and (min-width: 750px) {
   .column-grid .button {
     margin-top: 4rem;
-  }
-  .column-grid-card__image-wrapper+* {
-    margin-top: 20px;
   }
 }
 

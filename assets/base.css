@@ -2705,9 +2705,6 @@ body[active-popup="age-verification"] .theme-popup-overlay {
   body[active-popup="overly-navigation-panel"] .shopify-section-group-header-group.section-header {
     z-index: 4;
   }
-  body {
-    padding-bottom: calc(var(--bottom-fixed-navigation) + 20px);
-  }
   .overlay-navigation-panel__popup {
     position: fixed;
     top: 50px;
