@@ -114,7 +114,7 @@
       ],
       "settings": {
         "full_width": false,
-        "color_scheme": "secondary",
+        "color_scheme": "primary",
         "layout_style": "standard",
         "product_visibility": true,
         "media_fit": "contain",

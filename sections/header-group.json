@@ -11,12 +11,19 @@
             "text": "⚡NEW! Introducing PuttDragon",
             "link": ""
           }
+        },
+        "announcement_AP3cLV": {
+          "type": "announcement",
+          "settings": {
+            "text": "⚡Use this section to make announcements",
+            "link": ""
+          }
         }
       },
       "block_order": [
-        "announcement-bar-0"
+        "announcement-bar-0",
+        "announcement_AP3cLV"
       ],
-      "disabled": true,
       "settings": {
         "full_width": true,
         "color_scheme": "primary",
@@ -29,7 +36,7 @@
       "settings": {
         "full_width": true,
         "color_scheme": "secondary",
-        "sticky_header": true,
+        "sticky_header": false,
         "transparent_header": false,
         "logo": "shopify:\/\/shop_images\/Islands_Golf_Logo_Color.png",
         "logo_width": 120,

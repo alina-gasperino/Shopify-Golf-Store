@@ -1,14 +1,117 @@
 {
-    "sections": {
-      "main": {
-        "type": "main-page",
-        "settings": {
-          "heading_alignment": "center"
-        }
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "full_width": false,
+        "heading_size": "h2",
+        "heading_alignment": "center"
       }
     },
-    "order": [
-      "main"
-    ]
-  }
-  
+    "image_banner_gX996U": {
+      "type": "image-banner",
+      "blocks": {
+        "banner_qHRB4H": {
+          "type": "banner",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/IMG_7001.png",
+            "image_overlay_opacity": 20,
+            "subheading": "",
+            "heading": "Setup & Use",
+            "heading_size": "h2",
+            "description": "",
+            "primary_button_label": "",
+            "primary_button_link": "",
+            "primary_button_style": "primary",
+            "secondary_button_label": "",
+            "secondary_button_link": "",
+            "secondary_button_style": "secondary",
+            "content_position": "middle-center",
+            "content_alignment": "center",
+            "show_text_box": false,
+            "background_opacity": 100,
+            "color_scheme": "secondary",
+            "content_color": "#28282A",
+            "mobile_content_alignment": "center",
+            "show_text_below": true
+          }
+        }
+      },
+      "block_order": [
+        "banner_qHRB4H"
+      ],
+      "settings": {
+        "full_width": true,
+        "image_height": "small"
+      }
+    },
+    "column_setup_trY9Mw": {
+      "type": "column-setup",
+      "blocks": {
+        "column_W4eQ84": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/GOLD_TRAINING_AID_v4-05.png",
+            "title": "Put Putt Dragon On",
+            "heading_size": "h2",
+            "text": "<p>Place the shoulder strap around your right shoulder so the bar touches your back and its arms fit under your arms.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_qHaAmc": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/GOLD_TRAINING_AID_v4-08.png",
+            "title": "Stand In a Doorway",
+            "heading_size": "h2",
+            "text": "<p>Find a doorway that is wide enough to fit Putt Dragon and feel the difference<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_Eiqz7i": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/GOLD_TRAINING_AID_v4-06.png",
+            "title": "Start Putting",
+            "heading_size": "h2",
+            "text": "<p>Putt Draon will make you experience the perfect putting stroke.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_W4eQ84",
+        "column_qHaAmc",
+        "column_Eiqz7i"
+      ],
+      "settings": {
+        "full_width": false,
+        "columns_desktop": 3,
+        "color_scheme": "primary",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "enable_mobile_autorotate": false,
+        "change_mobile_slides_speed": 5,
+        "subheading": "",
+        "title": "",
+        "heading_size": "h3",
+        "heading_alignment": "center",
+        "column_with_background": true,
+        "color_scheme_secondary": "gray",
+        "show_image": true,
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "column_alignment": "left"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_banner_gX996U",
+    "column_setup_trY9Mw"
+  ]
+}

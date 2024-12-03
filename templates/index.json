@@ -1,101 +1,28 @@
 {
   "sections": {
-    "slideshow": {
-      "type": "slideshow",
-      "blocks": {
-        "slide": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/IMG_8426.jpg",
-            "image_overlay_opacity": 0,
-            "subheading": "PERFECT YOUR STROKE, STOP MISSING PUTTS",
-            "heading": "PuttDragon",
-            "description": "<p>Introducing Putt Dragon, an Innovative new product that helps you execute the perfect putting stroke.<\/p>",
-            "heading_size": 42,
-            "button_label": "Learn More",
-            "link": "",
-            "button_style": "primary",
-            "button_label_second": "",
-            "link_second": "",
-            "button_style_second": "secondary",
-            "box_align": "middle-left",
-            "show_text_box": true,
-            "background_opacity": 100,
-            "color_scheme": "secondary",
-            "content_width": 70,
-            "text_alignment": "left",
-            "content_color": "#28282a",
-            "text_alignment_mobile": "left",
-            "heading_size_mobile": 28
-          }
-        }
-      },
-      "block_order": [
-        "slide"
-      ],
-      "settings": {
-        "full_width": true,
-        "transparent_header": true,
-        "slide_height": "medium",
-        "auto_rotate": false,
-        "change_slides_speed": 3,
-        "slide_height_mobile": "medium",
-        "show_text_below": true
-      }
-    },
-    "auto_scrolling_text_kxxVxw": {
-      "type": "auto-scrolling-text",
-      "blocks": {
-        "scrolling_text_CEGFft": {
-          "type": "scrolling_text",
-          "settings": {
-            "text": "⚡NEW! Introducing PuttDragon",
-            "title_size": "h5",
-            "link": ""
-          }
-        },
-        "scrolling_text_zNpx4h": {
-          "type": "scrolling_text",
-          "settings": {
-            "text": "⚡NEW! Introducing PuttDragon",
-            "title_size": "h5",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "scrolling_text_CEGFft",
-        "scrolling_text_zNpx4h"
-      ],
-      "settings": {
-        "full_width": true,
-        "enable_scroll": true,
-        "scrolling_speed": 2
-      }
-    },
-    "image_banner_PwnnLE": {
+    "image_banner": {
       "type": "image-banner",
       "blocks": {
-        "banner_HFrrHy": {
+        "banner1": {
           "type": "banner",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Putt_Dragon_Only_Logo_Color.png",
-            "image_overlay_opacity": 0,
-            "subheading": "",
-            "heading": "",
-            "heading_size": "h3",
-            "description": "",
-            "primary_button_label": "",
-            "primary_button_link": "",
+            "image": "shopify:\/\/shop_images\/20150710_190658.jpg",
+            "image_overlay_opacity": 10,
+            "subheading": "PERFECT YOUR STROKE, STOP MISSING PUTTS",
+            "heading": "PuttDragon",
+            "heading_size": "h2",
+            "description": "<p>Introducing Putt Dragon, an Innovative new product that helps you execute the perfect putting stroke.<\/p>",
+            "primary_button_label": "Shop Now",
+            "primary_button_link": "shopify:\/\/collections\/all",
             "primary_button_style": "primary",
             "secondary_button_label": "",
             "secondary_button_link": "",
             "secondary_button_style": "secondary",
             "content_position": "middle-center",
             "content_alignment": "center",
-            "show_text_box": false,
-            "background_opacity": 100,
-            "color_scheme": "secondary",
+            "show_text_box": true,
+            "background_opacity": 75,
+            "color_scheme": "primary",
             "content_color": "#28282a",
             "mobile_content_alignment": "center",
             "show_text_below": true
@@ -103,419 +30,62 @@
         }
       },
       "block_order": [
-        "banner_HFrrHy"
+        "banner1"
       ],
-      "custom_css": [],
       "settings": {
-        "full_width": false,
+        "full_width": true,
         "image_height": "adapt"
       }
     },
-    "video_7NmyQF": {
-      "type": "video",
-      "settings": {
-        "full_width": false,
-        "subheading": "",
-        "title": "",
-        "heading_size": "h3",
-        "heading_alignment": "center",
-        "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
-        "enable_video_autoplay": false,
-        "description": ""
-      }
-    },
-    "column_grid_LhURMp": {
-      "type": "column-grid",
+    "rich_text_Lqxn7Y": {
+      "type": "rich-text",
       "blocks": {
-        "column_V9BTjH": {
-          "type": "column",
+        "heading_wDW8iP": {
+          "type": "heading",
           "settings": {
-            "image": "shopify:\/\/shop_images\/GOLD_TRAINING_AID_v4-05.png",
-            "title": "Shoulder Plane",
-            "heading_size": "h6",
-            "text": "<p>Most Amateurs rotate their shoulders on a horizontal plane. Putt Dragon forces your shoulders to rotate in a vertical motion like the pros.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_ULdDh3": {
-          "type": "column",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/GOLD_TRAINING_AID_v4-07.png",
-            "title": "One Piece Stroke",
-            "heading_size": "h6",
-            "text": "<p>Putt Dragon forces your arms and<br\/>shoulders to move together in a    one-piece motion, just like the pros.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_XXfxNN": {
-          "type": "column",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/GOLD_TRAINING_AID_v4-06.png",
-            "title": "Shoulder Alignment",
-            "heading_size": "h6",
-            "text": "<p>It is very important that your shoulders and feet are aligned with each other. Putt Dragon forces proper alignment.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "column_V9BTjH",
-        "column_ULdDh3",
-        "column_XXfxNN"
-      ],
-      "settings": {
-        "full_width": false,
-        "columns_desktop": 3,
-        "color_scheme": "secondary",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "enable_mobile_autorotate": false,
-        "change_mobile_slides_speed": 5,
-        "subheading": "",
-        "title": "Key Advantages",
-        "heading_size": "h3",
-        "heading_alignment": "center",
-        "column_with_background": true,
-        "color_scheme_secondary": "gray",
-        "show_image": true,
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "column_alignment": "left"
-      }
-    },
-    "divider_i6TLN9": {
-      "type": "divider",
-      "settings": {
-        "margin_desktop": 130,
-        "margin_mobile": 40
-      }
-    },
-    "countdown_timer": {
-      "type": "countdown-timer",
-      "blocks": {
-        "content": {
-          "type": "content",
-          "settings": {
-            "heading": "Launch Sale",
-            "text": "<p>Be one of the first customers to unleash your putting with the PuttDragon. Purchase before 01\/01\/2025 and recieve 10% off!<\/p>",
+            "subheading": "Putting Shoulder Alignment Trainer",
+            "heading": "Key Advantages",
             "heading_size": "h3"
           }
-        },
-        "timer": {
-          "type": "timer",
-          "settings": {
-            "enable_timer": true,
-            "year": "2025",
-            "month": "01",
-            "day": "1",
-            "hour": "00",
-            "minute": "00",
-            "hide_timer": false,
-            "text": ""
-          }
-        },
-        "button": {
-          "type": "button",
-          "settings": {
-            "button": "Buy Now",
-            "button_link": "shopify:\/\/products\/the-dragon",
-            "button_style": "primary"
-          }
         }
       },
       "block_order": [
-        "content",
-        "timer",
-        "button"
+        "heading_wDW8iP"
+      ],
+      "custom_css": [
+        ".rich-text {padding: 50px 0;}"
       ],
       "settings": {
-        "full_width": true,
-        "reduce_margins": true,
+        "full_width": false,
+        "content_alignment": "center",
         "color_scheme": "secondary"
       }
     },
-    "featured_product": {
-      "type": "featured-product",
-      "blocks": {
-        "vendor": {
-          "type": "vendor-sku",
-          "settings": {}
-        },
-        "title": {
-          "type": "title",
-          "settings": {
-            "heading_size": "h3"
-          }
-        },
-        "offer": {
-          "type": "offer",
-          "settings": {
-            "color_scheme": "primary",
-            "heading": "Super Deals",
-            "offer_info": "<p>Ends: Jul 9, 11:59 PM PT<\/p>"
-          }
-        },
-        "price": {
-          "type": "price",
-          "settings": {}
-        },
-        "divider": {
-          "type": "divider",
-          "settings": {}
-        },
-        "inventory": {
-          "type": "inventory",
-          "settings": {
-            "inventory_threshold": 8,
-            "low_inventory_notice": "Hurry, limited stock available! Only ||count|| left in stock.",
-            "available_message": "Ready for prompt delivery! Only ||count|| left in stock."
-          }
-        },
-        "variant_picker": {
-          "type": "variant_picker",
-          "settings": {
-            "picker_type": "button"
-          }
-        },
-        "quantity_selector": {
-          "type": "quantity_selector",
-          "settings": {
-            "enable_share": true
-          }
-        },
-        "buy_buttons": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": false
-          }
-        }
-      },
-      "block_order": [
-        "vendor",
-        "title",
-        "offer",
-        "price",
-        "divider",
-        "inventory",
-        "variant_picker",
-        "quantity_selector",
-        "buy_buttons"
-      ],
-      "settings": {
-        "full_width": false,
-        "color_scheme": "secondary",
-        "product": "the-dragon",
-        "layout_style": "normal",
-        "media_fit": "contain",
-        "gallery_layout": "stacked",
-        "thumbnail_slider": false,
-        "image_zoom": false,
-        "mobile_thumbnails": false,
-        "enable_video_looping": false
-      }
-    },
-    "featured_collection": {
-      "type": "featured-collection",
-      "disabled": true,
-      "settings": {
-        "full_width": false,
-        "products_to_show": 6,
-        "columns_desktop": 4,
-        "enable_desktop_slider": true,
-        "enable_desktop_autorotate": false,
-        "change_desktop_slides_speed": 5,
-        "columns_mobile": "2",
-        "swipe_on_mobile": true,
-        "enable_mobile_autorotate": false,
-        "change_mobile_slides_speed": 5,
-        "subheading": "",
-        "title": "Our products",
-        "heading_size": "h3",
-        "description": "",
-        "show_description": false,
-        "heading_alignment": "center",
-        "collection": "",
-        "show_view_all": false,
-        "show_view_all_link": "",
-        "grid_style": "standard",
-        "color_scheme": "secondary",
-        "image_ratio": "adapt",
-        "show_color_swatch": false,
-        "show_secondary_image": false,
-        "enable_quick_add": false
-      }
-    },
-    "auto-scrolling-text": {
-      "type": "auto-scrolling-text",
-      "blocks": {
-        "scrolling_text1": {
-          "type": "scrolling_text",
-          "settings": {
-            "text": "⚡Auto-scrolling text",
-            "title_size": "h2",
-            "link": ""
-          }
-        },
-        "scrolling_text2": {
-          "type": "scrolling_text",
-          "settings": {
-            "text": "⚡Auto-scrolling text",
-            "title_size": "h2",
-            "link": ""
-          }
-        },
-        "scrolling_text3": {
-          "type": "scrolling_text",
-          "settings": {
-            "text": "⚡Auto-scrolling text",
-            "title_size": "h2",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "scrolling_text1",
-        "scrolling_text2",
-        "scrolling_text3"
-      ],
-      "disabled": true,
-      "settings": {
-        "full_width": true,
-        "enable_scroll": true,
-        "scrolling_speed": 2
-      }
-    },
-    "column-grid": {
-      "type": "column-grid",
-      "blocks": {
-        "column1": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "heading_size": "h6",
-            "text": "",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column2": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "heading_size": "h6",
-            "text": "",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column3": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "heading_size": "h6",
-            "text": "",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column4": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "heading_size": "h6",
-            "text": "",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column5": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "heading_size": "h6",
-            "text": "",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column6": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "heading_size": "h6",
-            "text": "",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "column1",
-        "column2",
-        "column3",
-        "column4",
-        "column5",
-        "column6"
-      ],
-      "disabled": true,
-      "settings": {
-        "full_width": true,
-        "columns_desktop": 6,
-        "color_scheme": "secondary",
-        "columns_mobile": "2",
-        "swipe_on_mobile": true,
-        "enable_mobile_autorotate": false,
-        "change_mobile_slides_speed": 5,
-        "subheading": "",
-        "title": "Column grid",
-        "heading_size": "h3",
-        "heading_alignment": "center",
-        "column_with_background": true,
-        "color_scheme_secondary": "gray",
-        "show_image": true,
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "column_alignment": "center"
-      }
-    },
-    "image_with_text": {
+    "image_with_text_gRBzxL": {
       "type": "image-with-text",
       "blocks": {
-        "heading": {
+        "heading_bjGR9k": {
           "type": "heading",
           "settings": {
-            "subheading": "Subheading",
-            "heading": "Image with text",
-            "heading_size": "h3"
+            "subheading": "",
+            "heading": "Shoulder Plane",
+            "heading_size": "h2"
           }
         },
-        "text": {
+        "text_J34mtw": {
           "type": "text",
           "settings": {
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review. <\/p>"
-          }
-        },
-        "button": {
-          "type": "button",
-          "settings": {
-            "button_label": "Button label",
-            "button_link": "",
-            "button_style": "primary"
+            "text": "<p>Most Amateurs rotate their shoulders on a horizontal plane. Putt Dragon forces your shoulders to rotate in a vertical motion like the pros.<\/p>"
           }
         }
       },
       "block_order": [
-        "heading",
-        "text",
-        "button"
+        "heading_bjGR9k",
+        "text_J34mtw"
       ],
-      "disabled": true,
       "settings": {
         "full_width": false,
+        "image": "shopify:\/\/shop_images\/GOLD_TRAINING_AID_v4-05.png",
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "image_first",
@@ -526,272 +96,220 @@
         "mobile_content_alignment": "left"
       }
     },
-    "product_shop_the_look": {
-      "type": "product-shop-the-look",
+    "image_with_text_KYzFBe": {
+      "type": "image-with-text",
       "blocks": {
-        "product1": {
-          "type": "product",
+        "heading_8hAewP": {
+          "type": "heading",
           "settings": {
-            "product": "",
-            "horizontal_position": 74,
-            "vertical_position": 25,
-            "horizontal_position_mobile": 30,
-            "vertical_position_mobile": 26
+            "subheading": "",
+            "heading": "One Piece Stroke",
+            "heading_size": "h2"
           }
         },
-        "product2": {
-          "type": "product",
+        "text_rfHbTz": {
+          "type": "text",
           "settings": {
-            "product": "",
-            "horizontal_position": 50,
-            "vertical_position": 30,
-            "horizontal_position_mobile": 45,
-            "vertical_position_mobile": 38
-          }
-        },
-        "product3": {
-          "type": "product",
-          "settings": {
-            "product": "",
-            "horizontal_position": 44,
-            "vertical_position": 60,
-            "horizontal_position_mobile": 70,
-            "vertical_position_mobile": 26
+            "text": "<p>Putt Dragon forces your arms and<br\/>shoulders to move together in a    one-piece motion, just like the pros.<\/p>"
           }
         }
       },
       "block_order": [
-        "product1",
-        "product2",
-        "product3"
-      ],
-      "disabled": true,
-      "settings": {
-        "full_width": true,
-        "color_scheme": "secondary",
-        "subheading": "",
-        "title": "Shop the look",
-        "heading_size": "h3",
-        "heading_alignment": "center",
-        "image_overlay_opacity": 20,
-        "image_placement": "left",
-        "image_height": "small",
-        "color_scheme_products": "gray",
-        "image_ratio": "adapt",
-        "show_color_swatch": false,
-        "show_secondary_image": false,
-        "enable_quick_add": false
-      }
-    },
-    "image_banner": {
-      "type": "image-banner",
-      "blocks": {
-        "banner1": {
-          "type": "banner",
-          "settings": {
-            "image_overlay_opacity": 10,
-            "subheading": "Image banner subheading",
-            "heading": "Image banner heading",
-            "heading_size": "h3",
-            "description": "",
-            "primary_button_label": "Shop Now",
-            "primary_button_link": "",
-            "primary_button_style": "primary",
-            "secondary_button_label": "",
-            "secondary_button_link": "",
-            "secondary_button_style": "secondary",
-            "content_position": "middle-center",
-            "content_alignment": "center",
-            "show_text_box": true,
-            "background_opacity": 100,
-            "color_scheme": "secondary",
-            "content_color": "#28282a",
-            "mobile_content_alignment": "center",
-            "show_text_below": true
-          }
-        },
-        "banner2": {
-          "type": "banner",
-          "settings": {
-            "image_overlay_opacity": 10,
-            "subheading": "Image banner subheading",
-            "heading": "Image banner heading",
-            "heading_size": "h3",
-            "description": "",
-            "primary_button_label": "Button label",
-            "primary_button_link": "",
-            "primary_button_style": "primary",
-            "secondary_button_label": "",
-            "secondary_button_link": "",
-            "secondary_button_style": "secondary",
-            "content_position": "bottom-center",
-            "content_alignment": "center",
-            "show_text_box": true,
-            "background_opacity": 100,
-            "color_scheme": "secondary",
-            "content_color": "#28282a",
-            "mobile_content_alignment": "center",
-            "show_text_below": true
-          }
-        }
-      },
-      "block_order": [
-        "banner1",
-        "banner2"
+        "heading_8hAewP",
+        "text_rfHbTz"
       ],
       "settings": {
         "full_width": false,
-        "image_height": "adapt"
+        "image": "shopify:\/\/shop_images\/GOLD_TRAINING_AID_v4-07.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "color_scheme": "secondary",
+        "mobile_content_alignment": "left"
       }
     },
-    "customer_reviews": {
-      "type": "customer-reviews",
+    "image_with_text_Cpk7Mq": {
+      "type": "image-with-text",
       "blocks": {
-        "review1": {
-          "type": "review",
+        "heading_XxjkGc": {
+          "type": "heading",
           "settings": {
-            "title": "Amazing experience!",
-            "review_star": "4",
-            "description": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.<\/p>",
-            "author": "Author's name"
+            "subheading": "",
+            "heading": "Shoulder Alignment",
+            "heading_size": "h2"
           }
         },
-        "review2": {
-          "type": "review",
+        "text_4HiyUa": {
+          "type": "text",
           "settings": {
-            "title": "Amazing experience!",
-            "review_star": "5",
-            "description": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.<\/p>",
-            "author": "Author's name"
-          }
-        },
-        "review3": {
-          "type": "review",
-          "settings": {
-            "title": "Amazing experience!",
-            "review_star": "5",
-            "description": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.<\/p>",
-            "author": "Author's name"
-          }
-        },
-        "review4": {
-          "type": "review",
-          "settings": {
-            "title": "Amazing experience!",
-            "review_star": "5",
-            "description": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.<\/p>",
-            "author": "Author's name"
+            "text": "<p>It is very important that your shoulders and feet are aligned with each other. Putt Dragon forces proper alignment.<\/p>"
           }
         }
       },
       "block_order": [
-        "review1",
-        "review2",
-        "review3",
-        "review4"
+        "heading_XxjkGc",
+        "text_4HiyUa"
       ],
-      "disabled": true,
       "settings": {
         "full_width": false,
-        "reviews_per_row": 3,
+        "image": "shopify:\/\/shop_images\/GOLD_TRAINING_AID_v4-06.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
         "color_scheme": "secondary",
-        "enable_desktop_slider": true,
-        "enable_desktop_autorotate": false,
-        "change_desktop_slides_speed": 5,
-        "swipe_on_mobile": true,
-        "enable_mobile_autorotate": false,
-        "change_mobile_slides_speed": 5,
-        "subheading": "",
-        "title": "Customer Reviews",
-        "heading_size": "h3",
-        "heading_alignment": "center",
-        "title_size": "h4",
-        "content_alignment": "left",
-        "color_scheme_secondary": "secondary"
+        "mobile_content_alignment": "left"
       }
     },
-    "slideshow1": {
-      "type": "slideshow",
+    "featured_product_6yqbtc": {
+      "type": "featured-product",
       "blocks": {
-        "video": {
-          "type": "video",
+        "title_kgcjFn": {
+          "type": "title",
           "settings": {
-            "subheading": "Tell your brand’s story through video",
-            "heading": "Video slide",
-            "description": "",
-            "heading_size": 38,
-            "button_label": "Button label",
-            "link": "",
-            "button_style": "primary",
-            "button_label_second": "",
-            "link_second": "",
-            "button_style_second": "secondary",
-            "box_align": "middle-left",
-            "show_text_box": true,
-            "background_opacity": 100,
-            "color_scheme": "secondary",
-            "content_width": 70,
-            "text_alignment": "center",
-            "text_alignment_mobile": "center",
-            "heading_size_mobile": 28
+            "heading_size": "h2"
+          }
+        },
+        "offer_xxHLdU": {
+          "type": "offer",
+          "settings": {
+            "color_scheme": "primary",
+            "heading": "Super Deals",
+            "offer_info": "<p>Ends: Jul 9, 11:59 PM PT<\/p>"
+          }
+        },
+        "price_hg8tit": {
+          "type": "price",
+          "settings": {}
+        },
+        "divider_YcQ6xq": {
+          "type": "divider",
+          "settings": {}
+        },
+        "quantity_selector_BzNkKF": {
+          "type": "quantity_selector",
+          "settings": {
+            "enable_share": true
+          }
+        },
+        "buy_buttons_3nf3XC": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": false
           }
         }
       },
       "block_order": [
-        "video"
+        "title_kgcjFn",
+        "offer_xxHLdU",
+        "price_hg8tit",
+        "divider_YcQ6xq",
+        "quantity_selector_BzNkKF",
+        "buy_buttons_3nf3XC"
       ],
-      "disabled": true,
-      "settings": {
-        "full_width": true,
-        "transparent_header": false,
-        "slide_height": "medium",
-        "auto_rotate": false,
-        "change_slides_speed": 5,
-        "slide_height_mobile": "medium",
-        "show_text_below": true
-      }
-    },
-    "featured_blog": {
-      "type": "featured-blog",
-      "disabled": true,
+      "custom_css": [
+        ".featured-product {padding: 50px 0;}"
+      ],
       "settings": {
         "full_width": false,
-        "post_limit": 3,
-        "blogs_per_row": 3,
-        "color_scheme_outer": "secondary",
-        "subheading": "",
-        "title": "Blog posts",
-        "heading_size": "h3",
-        "heading_alignment": "center",
-        "blog": "news",
+        "color_scheme": "primary",
+        "product": "the-dragon",
+        "layout_style": "normal",
+        "media_fit": "cover",
+        "gallery_layout": "thumbnail",
+        "thumbnail_slider": false,
+        "image_zoom": true,
+        "mobile_thumbnails": true,
+        "enable_video_looping": false
+      }
+    },
+    "collapsible_panel_XbFQYA": {
+      "type": "collapsible-panel",
+      "blocks": {
+        "collapsible_row_7rgXeV": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Attach the Arms",
+            "row_content": "<p>Pull out the Arm Pins and slide each end into the back bar.<\/p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_ftXTQY": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Attach the Rollers",
+            "row_content": "<p>Attach the Roller Pin and slide it into the back bar.<\/p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_YfdPbU": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Attach the Shoulder Strap",
+            "row_content": "<p>Attach the Shoulder Strap to the end of the right arm and the left ring of the back bar.<\/p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_H36q7L": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Put Putt Dragon On",
+            "row_content": "<p>Place the shoulder strap around your right shoulder so the bar touches your back and its arms fit under your arms.<\/p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_6fxQr3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Stand In a Doorway",
+            "row_content": "<p>Find a doorway that is wide enough to fit Putt Dragon and feel the difference<\/p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_gCrEBw": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Start Putting",
+            "row_content": "<p>Putt Dragon will make you experience the perfect putting stroke<\/p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_7rgXeV",
+        "collapsible_row_ftXTQY",
+        "collapsible_row_YfdPbU",
+        "collapsible_row_H36q7L",
+        "collapsible_row_6fxQr3",
+        "collapsible_row_gCrEBw"
+      ],
+      "settings": {
+        "full_width": false,
         "color_scheme": "secondary",
-        "show_image": true,
-        "image_height": "small",
-        "show_date": true,
-        "show_author": false,
-        "text_alignment": "center",
-        "show_view_all": false,
-        "show_view_all_link": ""
+        "subheading": "",
+        "title": "Setup & Use",
+        "heading_size": "h2",
+        "heading_alignment": "center",
+        "collapsible_color_scheme": "gray",
+        "open_first_collapsible_row": true,
+        "image": "shopify:\/\/shop_images\/GOLD_TRAINING_AID_v4-03.png",
+        "image_ratio": "adapt"
       }
     }
   },
   "order": [
-    "slideshow",
-    "auto_scrolling_text_kxxVxw",
-    "image_banner_PwnnLE",
-    "video_7NmyQF",
-    "column_grid_LhURMp",
-    "divider_i6TLN9",
-    "countdown_timer",
-    "featured_product",
-    "featured_collection",
-    "auto-scrolling-text",
-    "column-grid",
-    "image_with_text",
-    "product_shop_the_look",
     "image_banner",
-    "customer_reviews",
-    "slideshow1",
-    "featured_blog"
+    "rich_text_Lqxn7Y",
+    "image_with_text_gRBzxL",
+    "image_with_text_KYzFBe",
+    "image_with_text_Cpk7Mq",
+    "featured_product_6yqbtc",
+    "collapsible_panel_XbFQYA"
   ]
 }
