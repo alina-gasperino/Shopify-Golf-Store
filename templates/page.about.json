@@ -2,22 +2,23 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "full_width": false,
         "heading_size": "h2",
         "heading_alignment": "center"
       }
     },
-    "image-banner": {
+    "image_banner_eLVamm": {
       "type": "image-banner",
       "blocks": {
-        "banner": {
+        "banner_E9DM9t": {
           "type": "banner",
           "settings": {
             "image_overlay_opacity": 0,
             "subheading": "",
-            "heading": "",
-            "heading_size": "h3",
+            "heading": "About Islands Golf",
+            "heading_size": "h2",
             "description": "",
             "primary_button_label": "",
             "primary_button_link": "",
@@ -28,24 +29,82 @@
             "content_position": "middle-center",
             "content_alignment": "center",
             "show_text_box": false,
+            "background_opacity": 100,
             "color_scheme": "secondary",
-            "content_color": "#28282A",
+            "content_color": "#231f20",
             "mobile_content_alignment": "center",
             "show_text_below": true
           }
         }
       },
       "block_order": [
-        "banner"
+        "banner_E9DM9t"
+      ],
+      "settings": {
+        "full_width": true,
+        "image_height": "small"
+      }
+    },
+    "image_with_text_qKQHAy": {
+      "type": "image-with-text",
+      "blocks": {
+        "text_iiijHH": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Islands Golf<\/strong> was started by two golfers with a passion for improving their own games. All products are skillfully designed by Rick, our founder and CEO, who started making training aids out of PVC pipes to improve his golf skills. Over the years as inventions started to pile up and people encouraged him to make some for them, he decided to partner with his son Sam to start improving and mass producing the ideas. With his engineering background, multiple 3D printers, and countless hours, Rick started creating prototypes and Islands Golf was born.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_iiijHH"
+      ],
+      "custom_css": [
+        ".image-with-text {padding-top: 80px;}"
       ],
       "settings": {
         "full_width": false,
-        "image_height": "medium"
+        "image": "shopify:\/\/shop_images\/golfers.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "color_scheme": "secondary",
+        "mobile_content_alignment": "left"
+      }
+    },
+    "image_with_text_cgqwq6": {
+      "type": "image-with-text",
+      "blocks": {
+        "text_kmd7zz": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Under their vision, Islands Golf’s mission is to create innovative training aids that truly produce results. Our team constantly seeks to improve our own golf games, and through this process our goal is to create thoughtful and innovative products that will help everyone.<br\/><br\/>Sam still keeps the driver he broke in half after a barrage of frustrating tee shots. Every time he looks at it, he is reminded that he needs to always keep trying to improve his swing. Golf should be enjoyable, not frustrating. Our goal is to fix the root of the problem, not simply put bandages on it.<br\/><br\/>In the near future, you will see a variety of new innovative products.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_kmd7zz"
+      ],
+      "settings": {
+        "full_width": false,
+        "image": "shopify:\/\/shop_images\/Putting_Green_Stock_Photo.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "color_scheme": "secondary",
+        "mobile_content_alignment": "left"
       }
     }
   },
   "order": [
     "main",
-    "image-banner"
+    "image_banner_eLVamm",
+    "image_with_text_qKQHAy",
+    "image_with_text_cgqwq6"
   ]
 }

@@ -45,7 +45,7 @@
           "settings": {
             "subheading": "Putting Shoulder Alignment Trainer",
             "heading": "Key Advantages",
-            "heading_size": "h3"
+            "heading_size": "h2"
           }
         }
       },
@@ -56,7 +56,7 @@
         ".rich-text {padding: 50px 0;}"
       ],
       "settings": {
-        "full_width": false,
+        "full_width": true,
         "content_alignment": "center",
         "color_scheme": "secondary"
       }
@@ -164,6 +164,34 @@
         "content_layout": "no-overlap",
         "color_scheme": "secondary",
         "mobile_content_alignment": "left"
+      }
+    },
+    "rich_text_Ax8KyE": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_9ngta7": {
+          "type": "heading",
+          "settings": {
+            "subheading": "",
+            "heading": "About Putt Dragon",
+            "heading_size": "h2"
+          }
+        },
+        "text_QkGF4g": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_9ngta7",
+        "text_QkGF4g"
+      ],
+      "settings": {
+        "full_width": true,
+        "content_alignment": "center",
+        "color_scheme": "secondary"
       }
     },
     "featured_product_6yqbtc": {
@@ -309,6 +337,7 @@
     "image_with_text_gRBzxL",
     "image_with_text_KYzFBe",
     "image_with_text_Cpk7Mq",
+    "rich_text_Ax8KyE",
     "featured_product_6yqbtc",
     "collapsible_panel_XbFQYA"
   ]

@@ -146,11 +146,72 @@
         "image_ratio": "adapt",
         "column_alignment": "center"
       }
+    },
+    "instruction_F8yrX4": {
+      "type": "instruction",
+      "blocks": {
+        "column_FnreYn": {
+          "type": "column",
+          "settings": {
+            "title": "Attach the Arms",
+            "text": "<p>Pull out the Arm Pins and slide each end into the back bar.<\/p>"
+          }
+        },
+        "column_JBxVyQ": {
+          "type": "column",
+          "settings": {
+            "title": "Attach the Rollers",
+            "text": "<p>Pull out the Arm Pins and slide each end into the back bar.<\/p>"
+          }
+        },
+        "column_WRNbjN": {
+          "type": "column",
+          "settings": {
+            "title": "Attach the Shoulder Strap",
+            "text": "<p>Pull out the Arm Pins and slide each end into the back bar.<\/p>"
+          }
+        },
+        "column_jN7Can": {
+          "type": "column",
+          "settings": {
+            "title": "Put Putt Dragon On",
+            "text": "<p>Pull out the Arm Pins and slide each end into the back bar.<\/p>"
+          }
+        },
+        "column_Aaf9Ja": {
+          "type": "column",
+          "settings": {
+            "title": "Stand In a Doorway",
+            "text": "<p>Pull out the Arm Pins and slide each end into the back bar.<\/p>"
+          }
+        },
+        "column_ixa7KH": {
+          "type": "column",
+          "settings": {
+            "title": "Start Putting",
+            "text": "<p>Pull out the Arm Pins and slide each end into the back bar.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "column_FnreYn",
+        "column_JBxVyQ",
+        "column_WRNbjN",
+        "column_jN7Can",
+        "column_Aaf9Ja",
+        "column_ixa7KH"
+      ],
+      "settings": {
+        "title": "Setup & Use",
+        "full_width": false,
+        "image": "shopify:\/\/shop_images\/GOLD_TRAINING_AID_v4-03.png"
+      }
     }
   },
   "order": [
     "main",
     "image_banner_gX996U",
-    "column_grid_xKVHgy"
+    "column_grid_xKVHgy",
+    "instruction_F8yrX4"
   ]
 }
