@@ -1,0 +1,129 @@
+{{ 'section-column-grid.css' | asset_url | stylesheet_tag }}
+{{ 'component-rte.css' | asset_url | stylesheet_tag }}
+
+<link rel="stylesheet" href="{{ 'component-slider.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'component-slider.css' | asset_url | stylesheet_tag }}</noscript>
+
+<div class="instuctions_wrapper">
+  <div class="page-width isolate">
+    {%- if section.settings.title != blank -%}
+        <div class="header--head" style="text-align: center;">
+            <h2 class="heading">{{ section.settings.title | escape }}</h2>
+        </div>
+    {%- endif -%}
+
+    {% assign count = section.blocks.size | divided_by: 2 %}
+    {% assign mod = section.blocks.size | modulo: 2 %}
+    {% assign count = count |  plus: mod %}
+    
+    <div class="instuctions">
+        <div class="left_instruction">
+            {%- for block in section.blocks limit:count -%}
+                <div class="instruction_item">
+                    <div class="column-grid-card content-container {% if block.settings.image != blank or section.settings.show_image %} with-image{% endif %}">
+                        <div class="setup_title">  
+                            {%- if block.settings.title != blank -%}
+                                <h3 class="{{ block.settings.heading_size }}">{{ block.settings.title | escape }}</h3>
+                            {% endif %} 
+                        </div>
+                        <div class="instruction_detail">             
+                            {%- if block.settings.text != blank -%}
+                                <div class="rte">{{ block.settings.text }}</div>
+                            {%- endif -%}
+                        </div>
+                    </div>
+                </div>
+            {%- endfor -%}
+        </div>
+
+        <div class="instruction_image">
+            {{ section.settings.image | image_url: width: 1420 | image_tag: loading: 'lazy', widths: '275, 550, 710, 1420', class: 'column-grid-card__image' }}
+        </div>
+
+        <div class="right_instruction">
+            {%- for block in section.blocks offset:count -%}
+                <div class="instruction_item">
+                    <div class="column-grid-card content-container {% if block.settings.image != blank or section.settings.show_image %} with-image{% endif %}">
+                        <div class="setup_title">  
+                            {%- if block.settings.title != blank -%}
+                                <h3 class="{{ block.settings.heading_size }}">{{ block.settings.title | escape }}</h3>
+                            {% endif %} 
+                        </div>
+                        <div class="instruction_detail">             
+                            {%- if block.settings.text != blank -%}
+                                <div class="rte">{{ block.settings.text }}</div>
+                            {%- endif -%}
+                        </div>
+                    </div>
+                </div>
+            {%- endfor -%}
+        </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Instruction",
+  "class": "instruction",
+  "tag": "section",
+  "disabled_on": {
+    "groups": [
+      "header",
+      "footer"
+    ]
+  },
+  "settings": [
+    {
+        "type": "text",
+        "id": "title",
+        "default": "Column",
+        "label": "t:sections.column-grid.blocks.column.settings.title.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "t:sections.all.full_width.label",
+      "default": false
+    },
+    {
+        "type": "image_picker",
+        "id": "image",
+        "label": "t:sections.column-grid.blocks.column.settings.image.label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "column",
+      "name": "t:sections.column-grid.blocks.column.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Column",
+          "label": "t:sections.column-grid.blocks.column.settings.title.label"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+          "label": "t:sections.column-grid.blocks.column.settings.text.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Instruction",
+      "blocks": [
+        {
+          "type": "column"
+        },
+        {
+          "type": "column"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
